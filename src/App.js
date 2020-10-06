@@ -1,16 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
 
-import Game from "./components/Game";
+import Container from "./components/Container";
+
+// TODO remove movie title from plot
 
 function App() {
-  // const [score, setScore] = useState(0);
-  // const [tries, setTries] = useState(6);
-  const [movieHistory, setMovieHistory] = useState([]);
-
   return (
     <div className='App App-header'>
-      <Game setMovieHistory={setMovieHistory} movieHistory={movieHistory} />
+      <Container />
     </div>
   );
 }
