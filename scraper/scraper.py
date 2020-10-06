@@ -3,7 +3,8 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-# Get's the IMDb ids for later api use
+# gets the IMDb ids for later api use
+# scraped on October 6, 2020
 
 
 page_num = 1
