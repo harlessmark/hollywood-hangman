@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import movies from "../movies.json";
 import Movie from "./Movie";
 import KeyListener from "./KeyListener";
@@ -32,6 +32,7 @@ function Game(props) {
         <KeyListener
           guessedLetters={props.guessedLetters}
           setGuessedLetters={props.setGuessedLetters}
+          doubleLetterCheck={props.doubleLetterCheck}
         />
       )}
     </div>

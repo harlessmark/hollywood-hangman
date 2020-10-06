@@ -14,13 +14,23 @@ function Container() {
   const startGame = () => {
     // starts game
     setScore(0);
+    setGuessedLetters([]);
+    setMovie(null);
+    setMovieHistory([]);
+  };
+
+  const doubleLetterCheck = letter => {
+    // checks to see if same key pressed twice
+    if (!guessedLetters.includes(letter)) {
+      setGuessedLetters([...guessedLetters, letter]);
+    }
   };
 
   return (
     <div>
       {score === null && <Instructions clickHandler={startGame} />}
 
-      {guessedLetters.length < 6 && (
+      {score === 0 && guessedLetters.length < 6 && (
         <Game
           movie={movie}
           setMovie={setMovie}
@@ -28,10 +38,13 @@ function Container() {
           setMovieHistory={setMovieHistory}
           guessedLetters={guessedLetters}
           setGuessedLetters={setGuessedLetters}
+          doubleLetterCheck={doubleLetterCheck}
         />
       )}
 
-      {guessedLetters.length >= 6 && <GameOver />}
+      {guessedLetters.length >= 6 && (
+        <GameOver movieHistory={movieHistory} clickHandler={startGame} />
+      )}
     </div>
   );
 }
