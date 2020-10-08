@@ -1,15 +1,24 @@
 import React from "react";
 
-function GameOver(props) {
+import { useDispatch, useSelector } from "react-redux";
+
+function GameOver() {
+  const movies = useSelector(state => state.movieReducer);
+  const dispatch = useDispatch();
+
+  const playAgain = () => {
+    dispatch({ type: "PLAY_AGAIN" });
+  };
+
   return (
     <div>
       <h1>Game Over</h1>
       <ol>
-        {props.movieHistory.map(movie => (
-          <li>{movie.Title}</li>
+        {movies.map(movie => (
+          <li>{movie.title}</li>
         ))}
       </ol>
-      <button onClick={props.clickHandler}>Play Again?</button>
+      <button onClick={playAgain}>Play Again?</button>
     </div>
   );
 }

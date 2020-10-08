@@ -7,7 +7,8 @@ function Instructions(props) {
         Play the classic game of hangman using{" "}
         <a
           href='https://www.imdb.com/search/title/?count=100&groups=top_1000&sort=user_rating'
-          target='_blank'>
+          target='_blank'
+          rel='noopener noreferrer'>
           IMDb's top 1,000 movies
         </a>
         .

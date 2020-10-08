@@ -1,50 +1,22 @@
-import React, { useState } from "react";
-
+import React from "react";
 import Instructions from "./Instructions";
 import Game from "./Game";
 import GameOver from "./GameOver";
 
+import { useDispatch, useSelector } from "react-redux";
+
 function Container() {
-  // ! useState(null) in production
-  const [score, setScore] = useState(0);
-  const [guessedLetters, setGuessedLetters] = useState([]);
-  const [movie, setMovie] = useState(null);
-  const [movieHistory, setMovieHistory] = useState([]);
+  const dispatch = useDispatch();
+  const score = useSelector(state => state.scoreReducer);
+  const letters = useSelector(state => state.letterReducer);
 
-  const startGame = () => {
-    // starts game
-    setScore(0);
-    setGuessedLetters([]);
-    setMovie(null);
-    setMovieHistory([]);
-  };
-
-  const doubleLetterCheck = letter => {
-    // checks to see if same key pressed twice
-    if (!guessedLetters.includes(letter)) {
-      setGuessedLetters([...guessedLetters, letter]);
-    }
-  };
+  const startGame = () => dispatch({ type: "START_GAME" });
 
   return (
     <div>
       {score === null && <Instructions clickHandler={startGame} />}
-
-      {score === 0 && guessedLetters.length < 6 && (
-        <Game
-          movie={movie}
-          setMovie={setMovie}
-          movieHistory={movieHistory}
-          setMovieHistory={setMovieHistory}
-          guessedLetters={guessedLetters}
-          setGuessedLetters={setGuessedLetters}
-          doubleLetterCheck={doubleLetterCheck}
-        />
-      )}
-
-      {guessedLetters.length >= 6 && (
-        <GameOver movieHistory={movieHistory} clickHandler={startGame} />
-      )}
+      {score && letters.length < 6 && <Game />}
+      {letters.length >= 6 && <GameOver />}
     </div>
   );
 }
