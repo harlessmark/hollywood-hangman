@@ -10,11 +10,20 @@ function GameOver() {
 
   // gets all movies played across all games
   const movies = useSelector(state => state.movies);
+
   // displays movie data on screen
   let id = 0;
   const movie = movies.map(movie => {
+    const lastMovie = movies[movies.length - 1].imdbID;
     id++;
-    return <li key={id}>{movie.title}</li>;
+
+    if (movie.imdbID === lastMovie) {
+      return (
+        <li key={id} style={{ textDecoration: "line-through" }}>
+          {movie.title}
+        </li>
+      );
+    } else return <li key={id}>{movie.title}</li>;
   });
 
   const scoreSentence = () => {
@@ -54,8 +63,8 @@ function GameOver() {
             buying me a coffee
           </a>{" "}
           if you enjoyed playing Hollywood Hangman. Even someone as{" "}
-          {adjective()} as you must have at least one redeeming quality. Isn't
-          that right, {slur()}?
+          {adjective()} as you must have at least one redeeming quality. Or am I
+          wrong, {slur()}?
         </p>
       )}
 

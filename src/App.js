@@ -6,8 +6,6 @@ import GameOver from "./components/GameOver";
 
 import { useDispatch, useSelector } from "react-redux";
 
-// TODO rename reducers to movies, letters, etc
-// TODO clear movie state after PLAY_AGAIN
 // TODO strikeout last movie in <li> since they got it wrong in GameOver.js
 
 function App() {
