@@ -1,31 +1,27 @@
 import React, { useEffect } from "react";
-import { insultSentence } from "../insults";
+import { insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
 
 const TotallyRandom = require("totally-random");
+const random = new TotallyRandom();
+
+// TODO strikeout last movie in <li> since they got it wrong
 
 function GameOver() {
-  const random = new TotallyRandom();
-  const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch({ type: "GAME_OVER" });
   }, []);
 
   // gets all movies played across all games
   const allMovies = useSelector(state => state.movieReducer);
-
   // gets most recent gameID
   const recentGameID = allMovies[allMovies.length - 1].gameID;
-
   // filters by most recent gameID
-  const filteredMovies = allMovies.filter(
-    movie => movie.gameID === recentGameID
-  );
-
+  const filtered = allMovies.filter(movie => movie.gameID === recentGameID);
   // displays movie data on screen
-  const movie = filteredMovies.map(movie => <li>{movie.title}</li>);
+  const movie = filtered.map(movie => <li>{movie.title}</li>);
 
+  const dispatch = useDispatch();
   const playAgain = () => {
     dispatch({ type: "START_GAME" });
     dispatch({ type: "CLEAR_LETTERS" });
@@ -35,11 +31,14 @@ function GameOver() {
   return (
     <div>
       <h1>Game Over</h1>
+
       <p>
-        {insultSentence()}You got x movies correct. I think my personal best is
-        (random.to(5) + x){" "}
+        {insultingSentence()} You only got {filtered.length - 1} movies correct.
+        I think my personal best is {random.to(5) + filtered.length - 1}, ha!
       </p>
+
       <ol>{movie}</ol>
+
       <button onClick={playAgain}>Play Again?</button>
     </div>
   );

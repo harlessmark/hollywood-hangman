@@ -36,9 +36,9 @@ function Movie() {
       <p className='blank-movie'>
         {censorTitle()} ({movie?.year})
       </p>
-      <p>{movie?.title}</p>
-      <p>{movie?.actors}</p>
-      <p>{movie?.director}</p>
+      <p>Title: {movie?.title}</p>
+      <p>Actors: {movie?.actors}</p>
+      <p>Director: {movie?.director}</p>
       <p>{censorPlot()}</p>
 
       <KeyboardEventHandler

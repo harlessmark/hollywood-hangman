@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import Movie from "./Movie";
+import TriesLeft from "./TriesLeft";
+import GuessedLetters from "./GuessedLetters";
 
 import { fetchMovie } from "../utils";
 import { useDispatch } from "react-redux";
@@ -18,6 +20,8 @@ function Game() {
 
   return (
     <div>
+      <TriesLeft />
+      <GuessedLetters />
       <Movie />
     </div>
   );

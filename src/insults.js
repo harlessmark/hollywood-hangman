@@ -227,7 +227,7 @@ const sentences = [
   "You're ten cents short of a dime.",
   "The wheel is spinning but the hamster is dead.",
   "An intellect rivaled only by garden tools.",
-  "Ain't no grain in this silo.",
+  "Ain't no grain in your silo.",
   "If you had a brain you'd be so dangerous.",
   "You're not firing on all 6 cyclinders.",
   "The porch light ain't on.",
@@ -236,7 +236,36 @@ const sentences = [
   "Bless your heart.",
 ];
 
+const interjections = [
+  "Arg",
+  "Aw",
+  "Blah",
+  "Bravo",
+  "Congrats",
+  "Duh",
+  "Eh",
+  "Er",
+  "Ew",
+  "Gee",
+  "Ha",
+  "Hey",
+  "Hmm",
+  "Man",
+  "Oh",
+  "Okay",
+  "Oy",
+  "Pff",
+  "Shucks",
+  "Ugh",
+  "Um",
+  "Well",
+  "Wow",
+  "Yikes",
+  "Yo",
+  "Yeah",
+];
+
 export const slur = () =>
   `you ${random.array(adjectives)} ${random.array(nouns)}`;
 
-export const insultSentence = () => random.array(sentences);
+export const insultingSentence = () => random.array(sentences);
