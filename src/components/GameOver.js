@@ -1,30 +1,36 @@
-import React, { useEffect } from "react";
-import { insultingSentence } from "../insults";
+import React from "react";
+import { interjection, adjective, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
 
 const TotallyRandom = require("totally-random");
 const random = new TotallyRandom();
 
-// TODO strikeout last movie in <li> since they got it wrong
-
 function GameOver() {
-  useEffect(() => {
-    dispatch({ type: "GAME_OVER" });
-  }, []);
+  const dispatch = useDispatch();
 
   // gets all movies played across all games
-  const allMovies = useSelector(state => state.movieReducer);
-  // gets most recent gameID
-  const recentGameID = allMovies[allMovies.length - 1].gameID;
-  // filters by most recent gameID
-  const filtered = allMovies.filter(movie => movie.gameID === recentGameID);
+  const movies = useSelector(state => state.movies);
   // displays movie data on screen
-  const movie = filtered.map(movie => <li>{movie.title}</li>);
+  let id = 0;
+  const movie = movies.map(movie => {
+    id++;
+    return <li key={id}>{movie.title}</li>;
+  });
 
-  const dispatch = useDispatch();
+  const scoreSentence = () => {
+    if (movies.length - 1 === 0) {
+      return "you didn't even get one correct";
+    } else if (movies.length - 1 === 1) {
+      return "you only got 1 movie correct";
+    } else {
+      return `you only got ${movies.length - 1} correct`;
+    }
+  };
+
   const playAgain = () => {
     dispatch({ type: "START_GAME" });
     dispatch({ type: "CLEAR_LETTERS" });
+    dispatch({ type: "GAME_OVER" });
     dispatch({ type: "ADD_MOVIES" });
   };
 
@@ -33,9 +39,25 @@ function GameOver() {
       <h1>Game Over</h1>
 
       <p>
-        {insultingSentence()} You only got {filtered.length - 1} movies correct.
-        I think my personal best is {random.to(5) + filtered.length - 1}, ha!
+        {interjection()}, {scoreSentence()}! {insultingSentence()}, {slur()}!
+        Even your mom managed to get {random.to(5) + movies.length - 1} right
+        when we played last night, ha!
       </p>
+
+      {random.boolean() && (
+        <p>
+          Consider{" "}
+          <a
+            href='https://buymeacoffee.com/2spacemilk'
+            target='_blank'
+            rel='noopener noreferrer'>
+            buying me a coffee
+          </a>{" "}
+          if you enjoyed playing Hollywood Hangman. Even someone as{" "}
+          {adjective()} as you must have at least one redeeming quality. Isn't
+          that right, {slur()}?
+        </p>
+      )}
 
       <ol>{movie}</ol>
 

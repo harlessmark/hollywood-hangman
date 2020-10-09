@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import movieReducer from "./movieReducer";
-import letterReducer from "./letterReducer";
-import scoreReducer from "./scoreReducer";
+import movies from "./movies";
+import letters from "./letters";
+import score from "./score";
 
 export default combineReducers({
-  movieReducer,
-  letterReducer,
-  scoreReducer,
+  movies,
+  letters,
+  score,
 });

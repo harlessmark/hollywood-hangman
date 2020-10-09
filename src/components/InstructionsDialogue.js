@@ -30,7 +30,7 @@ function InstructionsDialogue(props) {
       player: "Piece of cake",
     },
     {
-      mark: `If not then game over! I will remain the best, ha! Ready to play, ${slur()}?`,
+      mark: `If not then game over! I will remain the best, ha! Are you ready to play, ${slur()}?`,
       player: "Start the game",
     },
   ];

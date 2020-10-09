@@ -2,12 +2,12 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 function GuessedLetters() {
-  const guessedLetters = useSelector(state => state.letterReducer);
-  const letters = guessedLetters.map(letter => {
+  const letters = useSelector(state => state.letters);
+  const mappedLetters = letters.map(letter => {
     return `${letter} `;
   });
 
-  return <p>guessed letters: {letters}</p>;
+  return <p>guessed letters: {mappedLetters}</p>;
 }
 
 export default GuessedLetters;

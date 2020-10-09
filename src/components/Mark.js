@@ -4,7 +4,7 @@ import InstructionsDialogue from "./InstructionsDialogue";
 function Mark(props) {
   return (
     <div>
-      <img src='https://api.adorable.io/avatars/75/mark' />
+      <img src='https://api.adorable.io/avatars/75/mark' alt='avatar' />
 
       <p>
         <strong>Mark, the Movie Buff</strong>

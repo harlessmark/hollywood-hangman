@@ -1,6 +1,6 @@
-let gameID = 0;
+const initialState = [];
 
-export default (state = [], action) => {
+export default (state = initialState, action) => {
   const { type, payload } = action;
 
   if (type === "ADD_MOVIE") {
@@ -18,7 +18,6 @@ export default (state = [], action) => {
     return [
       ...state,
       {
-        gameID,
         imdbID,
         actors: Actors,
         director: Director,
@@ -30,7 +29,6 @@ export default (state = [], action) => {
       },
     ];
   } else if (type === "GAME_OVER") {
-    gameID++;
-    return state;
+    return initialState;
   } else return state;
 };

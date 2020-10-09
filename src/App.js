@@ -6,9 +6,13 @@ import GameOver from "./components/GameOver";
 
 import { useDispatch, useSelector } from "react-redux";
 
+// TODO rename reducers to movies, letters, etc
+// TODO clear movie state after PLAY_AGAIN
+// TODO strikeout last movie in <li> since they got it wrong in GameOver.js
+
 function App() {
-  const score = useSelector(state => state.scoreReducer);
-  const letters = useSelector(state => state.letterReducer);
+  const score = useSelector(state => state.score);
+  const letters = useSelector(state => state.letters);
   const dispatch = useDispatch();
 
   const startGame = () => dispatch({ type: "START_GAME" });

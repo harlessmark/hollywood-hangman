@@ -5,10 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 function Movie() {
   const dispatch = useDispatch();
-  const letters = useSelector(state => state.letterReducer);
-  const movie = useSelector(
-    state => state.movieReducer[state.movieReducer.length - 1]
-  );
+  const letters = useSelector(state => state.letters);
+  const movie = useSelector(state => state.movies[state.movies.length - 1]);
 
   const censorTitle = () => {
     // blanks out movie title
