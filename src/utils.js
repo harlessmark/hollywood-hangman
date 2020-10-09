@@ -6,7 +6,7 @@ export const fetchMovie = async () => {
 
   // gets random movie ID
   const movieID = random.array(movies);
-  const movieAPI = `http://www.omdbapi.com/?i=${movieID}&apikey=80e59555&plot=full`;
+  const movieAPI = `http://www.omdbapi.com/?i=${movieID}&apikey=80e59555&`;
 
   // gets movie data
   const res = await fetch(movieAPI);

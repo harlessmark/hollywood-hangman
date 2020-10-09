@@ -16,14 +16,14 @@ function Movie() {
   };
 
   const censorPlot = () => {
-    // removes movie name from plot
+    // blanks movie name from plot
     const blanks = "_".repeat(movie?.title.length);
     const re = new RegExp(movie?.title, "gi");
 
     return movie?.plot.replace(re, blanks);
   };
 
-  const duplicateLetters = letter => {
+  const letterCheck = letter => {
     // checks if letter has already been entered
     // dispatches if not
     if (!letters.includes(letter)) {
@@ -43,7 +43,7 @@ function Movie() {
 
       <KeyboardEventHandler
         handleKeys={[..."qwertyuiopasdfghjklzxcvbnm"]}
-        onKeyEvent={letter => duplicateLetters(letter)}
+        onKeyEvent={letter => letterCheck(letter)}
       />
     </div>
   );

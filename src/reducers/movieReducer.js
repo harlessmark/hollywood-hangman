@@ -30,10 +30,7 @@ export default (state = [], action) => {
       },
     ];
   } else if (type === "GAME_OVER") {
-    // all movies in current game
-    const filtered = state.filter(game => game.gameID === gameID);
     gameID++;
-
-    return filtered;
+    return state;
   } else return state;
 };
