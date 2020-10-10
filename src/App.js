@@ -6,7 +6,7 @@ import GameOver from "./components/GameOver";
 
 import { useDispatch, useSelector } from "react-redux";
 
-// TODO strikeout last movie in <li> since they got it wrong in GameOver.js
+// TODO error handling message from utils
 
 function App() {
   const score = useSelector(state => state.score);

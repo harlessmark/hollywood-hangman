@@ -1,4 +1,5 @@
 import React from "react";
+import About from "./About";
 import { interjection, adjective, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -70,7 +71,10 @@ function GameOver() {
 
       <ol>{movie}</ol>
 
+      <button>About</button>
       <button onClick={playAgain}>Play Again?</button>
+
+      <About />
     </div>
   );
 }
