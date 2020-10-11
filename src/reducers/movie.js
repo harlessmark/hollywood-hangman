@@ -1,6 +1,7 @@
 let initialState = {
   data: null,
   displayTitle: null,
+  gotCorrect: false,
   letters: [],
   tries: 6,
 };
@@ -27,6 +28,11 @@ export default (state = initialState, action) => {
       },
       displayTitle,
     };
+  }
+
+  if (type === "GOT_CORRECT") {
+    state.gotCorrect = !state.gotCorrect;
+    return { ...state };
   }
 
   if (type === "ADD_LETTER") {

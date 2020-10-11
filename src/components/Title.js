@@ -1,16 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-function Title(props) {
-  const { displayTitle } = useSelector(state => state.movie);
-  if (!displayTitle?.includes("_")) {
-    // console.log("score++");
+function Title() {
+  const movie = useSelector(state => state.movie);
+  const dispatch = useDispatch();
+
+  if (
+    movie?.displayTitle === movie?.data?.title &&
+    movie?.gotCorrect === false
+  ) {
+    dispatch({ type: "INCREMENT_SCORE" });
+    dispatch({ type: "GOT_CORRECT" });
   }
 
   return (
     <p className='blank-movie' style={{ color: "#f25042" }}>
       <b>
-        {displayTitle} {props.year}
+        {movie?.displayTitle} {movie?.data?.year}
       </b>
     </p>
   );

@@ -26,7 +26,7 @@ function Movie() {
 
   return (
     <div>
-      <Title title={data?.title} year={data?.year} />
+      <Title />
 
       <p>{data?.title}</p>
       <p>Actors: {data?.actors}</p>
