@@ -6,21 +6,23 @@ import GameOver from "./components/GameOver";
 
 import { useDispatch, useSelector } from "react-redux";
 
+// ! work on score next
 // TODO error handling message from utils
+// TODO use only two reducers: one for the current game, the other for the current movie
 // * https://countapi.xyz/
 
 function App() {
-  const score = useSelector(state => state.score);
-  const letters = useSelector(state => state.letters);
+  const { score } = useSelector(state => state.game);
+  const { tries } = useSelector(state => state.movie);
   const dispatch = useDispatch();
 
-  const startGame = () => dispatch({ type: "START_GAME" });
+  const startGame = () => dispatch({ type: "INIT_GAME" });
 
   return (
     <div className='App App-header'>
       {score === null && <Mark startGame={startGame} />}
-      {score !== null && letters.length < 6 && <Game />}
-      {letters.length >= 6 && <GameOver />}
+      {score !== null && tries !== 0 && <Game />}
+      {tries === 0 && <GameOver />}
     </div>
   );
 }

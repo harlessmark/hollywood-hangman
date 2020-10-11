@@ -8,48 +8,49 @@ const random = new TotallyRandom();
 
 function GameOver() {
   const dispatch = useDispatch();
-  const movies = useSelector(state => state.movies);
+  const { moviesPlayed } = useSelector(state => state.game);
 
   // displays movie data on screen
   let id = 0;
-  const movie = movies.map(movie => {
-    const lastMovie = movies[movies.length - 1].imdbID;
+  const movie = moviesPlayed.map(movie => {
+    const lastMovie = moviesPlayed[moviesPlayed.length - 1].imdbID;
     id++;
 
-    if (movie.imdbID === lastMovie) {
+    if (moviesPlayed.imdbID === lastMovie) {
       return (
         <li key={id} style={{ textDecoration: "line-through" }}>
-          {movie.title}
+          {moviesPlayed.title}
         </li>
       );
-    } else return <li key={id}>{movie.title}</li>;
+    } else return <li key={id}>{moviesPlayed.title}</li>;
   });
 
   const scoreSentence = () => {
-    if (movies.length - 1 === 0) {
+    if (moviesPlayed.length - 1 === 0) {
       return "you couldn't even get one correct";
-    } else if (movies.length - 1 === 1) {
+    } else if (moviesPlayed.length - 1 === 1) {
       return "you only got 1 movie correct";
     } else {
-      return `you only got ${movies.length - 1} correct`;
+      return `you only got ${moviesPlayed.length - 1} correct`;
     }
   };
 
   const playAgain = () => {
-    dispatch({ type: "START_GAME" });
-    dispatch({ type: "CLEAR_LETTERS" });
-    dispatch({ type: "GAME_OVER" });
-    dispatch({ type: "ADD_MOVIES" });
+    // dispatch({ type: "START_GAME" });
+    // dispatch({ type: "CLEAR_LETTERS" });
+    // dispatch({ type: "GAME_OVER" });
+    // dispatch({ type: "CLEAR_GUESSES" });
+    // dispatch({ type: "ADD_MOVIES" });
   };
 
   return (
     <div>
       <h1>Game Over</h1>
 
-      <p>
+      {/*  <p>
         {interjection()}, {scoreSentence()}! {insultingSentence()}, {slur()}!
-        Even your mom managed to get {random.to(5) + movies.length - 1} right
-        when we played last night, ha!
+        Even your mom managed to get {random.to(5) + moviesPlayed.length - 1}{" "}
+        right when we played last night, ha!
       </p>
 
       {random.boolean() && (
@@ -67,12 +68,12 @@ function GameOver() {
         </p>
       )}
 
-      <ol>{movie}</ol>
+      <ol>{moviesPlayed}</ol>
 
       <button>About</button>
       <button onClick={playAgain}>Play Again?</button>
 
-      <About />
+      <About /> */}
     </div>
   );
 }

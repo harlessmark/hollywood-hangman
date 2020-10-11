@@ -4,26 +4,34 @@ import KeyboardEventHandler from "react-keyboard-event-handler";
 import { useDispatch, useSelector } from "react-redux";
 
 function Movie() {
-  const letters = useSelector(state => state.letters);
-  const movie = useSelector(state => state.movies[state.movies.length - 1]);
   const dispatch = useDispatch();
+  const { letters } = useSelector(state => state.movie);
+  const { data } = useSelector(state => state.movie);
 
   const letterCheck = letter => {
     // checks if letter has already been entered
     if (!letters.includes(letter)) {
       dispatch({ type: "ADD_LETTER", letter });
-      dispatch({ type: "CORRECT_GUESS", letter });
+
+      const re = new RegExp(`${letter}`, "gi");
+      if (re.test(data.title)) {
+        // "tries" remains same if letter is in title
+        dispatch({ type: "CORRECT_GUESS", letter });
+      } else {
+        // tries-- if letter is not in title
+        dispatch({ type: "DECREMENT_TRIES" });
+      }
     }
   };
 
   return (
     <div>
-      <Title title={movie?.title} year={movie?.year} />
+      <Title title={data?.title} year={data?.year} />
 
-      <p>{movie?.title}</p>
-      <p>Actors: {movie?.actors}</p>
-      <p>Director: {movie?.director}</p>
-      <p>{movie?.plot}</p>
+      <p>{data?.title}</p>
+      <p>Actors: {data?.actors}</p>
+      <p>Director: {data?.director}</p>
+      <p>{data?.plot}</p>
 
       <KeyboardEventHandler
         handleKeys={[..."qwertyuiopasdfghjklzxcvbnm"]}
@@ -34,8 +42,3 @@ function Movie() {
 }
 
 export default Movie;
-
-// const re = new RegExp('e', "gi");
-
-// console.log(title.replace(re, "_"));
-// return title.replace(re, "_");

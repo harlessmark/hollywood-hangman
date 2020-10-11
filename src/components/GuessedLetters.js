@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 function GuessedLetters() {
-  const letters = useSelector(state => state.letters);
+  const { letters } = useSelector(state => state.movie);
   const mappedLetters = letters.map(letter => {
     return `${letter} `;
   });

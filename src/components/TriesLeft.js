@@ -2,10 +2,9 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 function TriesLeft() {
-  const tries = useSelector(state => state.letters);
-  const triesLeft = 6 - tries.length;
+  const { tries } = useSelector(state => state.movie);
 
-  return <p>tries left: {triesLeft ? triesLeft : 0}</p>;
+  return <p>tries left: {tries}</p>;
 }
 
 export default TriesLeft;

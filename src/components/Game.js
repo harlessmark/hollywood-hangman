@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import Movie from "./Movie";
 import TriesLeft from "./TriesLeft";
 import GuessedLetters from "./GuessedLetters";
+import Score from "./Score";
+import Movie from "./Movie";
 
 import { fetchMovie } from "../utils";
 import { useDispatch } from "react-redux";
@@ -11,20 +12,16 @@ function Game() {
 
   useEffect(() => {
     const getMovie = async () => {
-      const movie = await fetchMovie();
+      const data = await fetchMovie();
+      // wraps year in () for smoother rendering
+      data.Year = `(${data.Year})`;
 
-      // ! wraps year in () for smoother rendering
-      movie.Year = `(${movie.Year})`;
+      // removes title from plot
+      const blanks = "_".repeat(data.Title.length);
+      const re = new RegExp(data.Title, "gi");
+      data.Plot = data.Plot.replace(re, blanks);
 
-      // ! removes title from plot
-      const blanks = "_".repeat(movie.Title.length);
-      const re = new RegExp(movie.Title, "gi");
-      movie.Plot = movie.Plot.replace(re, blanks);
-
-      dispatch({ type: "ADD_MOVIE", movie });
-
-      const title = await movie.Title;
-      dispatch({ type: "ADD_TITLE", title });
+      dispatch({ type: "ADD_MOVIE", data });
     };
 
     getMovie();
@@ -32,6 +29,7 @@ function Game() {
 
   return (
     <div>
+      <Score />
       <TriesLeft />
       <GuessedLetters />
       <Movie />

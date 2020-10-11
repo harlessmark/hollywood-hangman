@@ -2,8 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 function Title(props) {
-  const letters = useSelector(state => state.letters);
-  const displayTitle = useSelector(state => state.title.displayTitle);
+  const { displayTitle } = useSelector(state => state.movie);
+  if (!displayTitle?.includes("_")) {
+    // console.log("score++");
+  }
 
   return (
     <p className='blank-movie' style={{ color: "#f25042" }}>
