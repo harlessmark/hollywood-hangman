@@ -8,8 +8,6 @@ const random = new TotallyRandom();
 
 function GameOver() {
   const dispatch = useDispatch();
-
-  // gets all movies played across all games
   const movies = useSelector(state => state.movies);
 
   // displays movie data on screen
@@ -29,7 +27,7 @@ function GameOver() {
 
   const scoreSentence = () => {
     if (movies.length - 1 === 0) {
-      return "you didn't even get one correct";
+      return "you couldn't even get one correct";
     } else if (movies.length - 1 === 1) {
       return "you only got 1 movie correct";
     } else {

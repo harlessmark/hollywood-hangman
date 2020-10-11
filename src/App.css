@@ -7,12 +7,35 @@
 }
 
 .App-header {
-  background-color: #4da8a2;
+  background-color: #f9f4ef;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  /* color: white; */
+  color: #716040;
+}
+
+.mark {
+  color: #f25042;
+}
+
+button {
+  color: #fffffe;
+  background-color: #8c7851;
+  border-radius: 10px;
+  box-shadow: 8px 8px rgb(27, 27, 27);
+  margin-left: 1rem;
+  padding: 1rem 4rem;
+  border: 2px solid #1b1b1b;
+}
+
+button:hover {
+  position: relative;
+  top: -3px;
+}
+
+button:focus {
+  outline: none;
 }

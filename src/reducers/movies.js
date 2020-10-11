@@ -1,7 +1,7 @@
 const initialState = [];
 
 export default (state = initialState, action) => {
-  const { type, payload } = action;
+  const { type, movie } = action;
 
   if (type === "ADD_MOVIE") {
     const {
@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
       Poster,
       Title,
       Year,
-    } = payload;
+    } = movie;
 
     return [
       ...state,

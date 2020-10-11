@@ -7,6 +7,7 @@ import GameOver from "./components/GameOver";
 import { useDispatch, useSelector } from "react-redux";
 
 // TODO error handling message from utils
+// * https://countapi.xyz/
 
 function App() {
   const score = useSelector(state => state.score);

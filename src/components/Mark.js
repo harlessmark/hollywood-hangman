@@ -6,7 +6,7 @@ function Mark(props) {
     <div>
       <img src='https://api.adorable.io/avatars/75/mark' alt='avatar' />
 
-      <p>
+      <p className='mark'>
         <strong>Mark, the Movie Buff</strong>
       </p>
 
