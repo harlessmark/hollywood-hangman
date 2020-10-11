@@ -1,5 +1,4 @@
 import React from "react";
-import InstructionsDialogue from "./InstructionsDialogue";
 
 function Mark(props) {
   return (
@@ -9,8 +8,6 @@ function Mark(props) {
       <p className='mark'>
         <strong>Mark, the Movie Buff</strong>
       </p>
-
-      <InstructionsDialogue startGame={props.startGame} />
     </div>
   );
 }

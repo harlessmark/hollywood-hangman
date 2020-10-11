@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { slur } from "../insults";
 
-function InstructionsDialogue(props) {
+function Instructions(props) {
   let [num, setNum] = useState(0);
 
   const dialogue = [
@@ -34,7 +34,6 @@ function InstructionsDialogue(props) {
       player: "Start the game",
     },
   ];
-
   return (
     <div>
       <p>{dialogue[num].mark}</p>
@@ -57,4 +56,4 @@ function InstructionsDialogue(props) {
   );
 }
 
-export default InstructionsDialogue;
+export default Instructions;
