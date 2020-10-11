@@ -1,6 +1,7 @@
 const initialState = {
   title: "",
   displayTitle: "",
+  letters: [],
 };
 
 export default (state = initialState, { type, title, letter }) => {
@@ -9,9 +10,10 @@ export default (state = initialState, { type, title, letter }) => {
 
     return { ...state, title, displayTitle };
   } else if (type === "CORRECT_GUESS") {
-    const alpha = [..."qwertyuiopasdfghjklzxcvbnm"];
-    const filtered = alpha.filter(az => az !== letter).join("");
-    const re = new RegExp(`[${filtered}\\s\\d\\W]`, "gi");
+    // adds letter to letters array
+    state.letters = [...state.letters, letter];
+
+    const re = new RegExp(`[^${state.letters.join("")}\\s\\W]`, "gi");
 
     state.displayTitle = state.title.replace(re, "_");
 
