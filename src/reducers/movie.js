@@ -6,7 +6,7 @@ let initialState = {
 };
 
 export default (state = initialState, action) => {
-  const { type, data, letter, tries } = action;
+  const { type, data, letter } = action;
 
   if (type === "ADD_MOVIE") {
     const { imdbID, Actors, Director, Genre, Plot, Poster, Title, Year } = data;
