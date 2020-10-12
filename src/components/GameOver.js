@@ -1,9 +1,8 @@
 import React from "react";
 // import About from "./About";
-import { interjection, adjective, slur, insultingSentence } from "../insults";
+import { interjection, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchMovie } from "../utils";
 const TotallyRandom = require("totally-random");
 const random = new TotallyRandom();
 
