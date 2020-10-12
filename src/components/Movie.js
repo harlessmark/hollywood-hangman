@@ -28,10 +28,11 @@ function Movie() {
     <div>
       <Title />
 
-      <p>{data?.title}</p>
+      {/* <p>{data?.title}</p> */}
+      <p>{data?.plot}</p>
       <p>Actors: {data?.actors}</p>
       <p>Director: {data?.director}</p>
-      <p>{data?.plot}</p>
+      <p style={{ color: "rgba(0,0,0,.3)" }}>dev use: {data?.imdbID}</p>
 
       <KeyboardEventHandler
         handleKeys={[..."qwertyuiopasdfghjklzxcvbnm"]}
