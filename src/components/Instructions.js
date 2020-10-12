@@ -43,14 +43,14 @@ function Instructions(props) {
         <button onClick={props.startGame}>Skip All</button>
       )}
 
-      {/* shows when final dialogue is shown */}
-      {dialogue[num].player === "Start the game" && (
-        <button onClick={props.startGame}>{dialogue[num].player}</button>
-      )}
-
       {/* hides when final dialogue is shown */}
       {dialogue[num].player !== "Start the game" && (
         <button onClick={() => setNum(num + 1)}>{dialogue[num].player}</button>
+      )}
+
+      {/* shows when final dialogue is shown */}
+      {dialogue[num].player === "Start the game" && (
+        <button onClick={props.startGame}>{dialogue[num].player}</button>
       )}
     </div>
   );

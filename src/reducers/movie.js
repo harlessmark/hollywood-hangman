@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
 
   if (type === "ADD_LETTER") {
     state.letters = [...state.letters, letter];
-    const re = new RegExp(`[^${state.letters.join("")}\\s\\W]`, "gi");
+    const re = new RegExp(`[^${state.letters.join("")}\\d\\s\\W]`, "gi");
     state.displayTitle = state.data.title.replace(re, "_");
 
     return { ...state };
@@ -48,7 +48,7 @@ export default (state = initialState, action) => {
     return { ...state };
   }
 
-  if (type === "GAME_OVER") return initialState;
+  if (type === "INITIAL_STATE_MOVIE") return initialState;
 
   return state;
 };

@@ -1,10 +1,10 @@
 import React from "react";
+import { ReactComponent as MarkSVG } from "../mark.svg";
 
-function Mark(props) {
+function Mark() {
   return (
     <div>
-      <img src='https://api.adorable.io/avatars/75/mark' alt='avatar' />
-
+      <MarkSVG />
       <p className='mark'>
         <strong>Mark, the Movie Buff</strong>
       </p>

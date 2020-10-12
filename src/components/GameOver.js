@@ -1,8 +1,9 @@
 import React from "react";
-import About from "./About";
+// import About from "./About";
 import { interjection, adjective, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
 
+import { fetchMovie } from "../utils";
 const TotallyRandom = require("totally-random");
 const random = new TotallyRandom();
 
@@ -12,17 +13,17 @@ function GameOver() {
 
   // displays movie data on screen
   let id = 0;
-  const movie = moviesPlayed.map(movie => {
+  const movieList = moviesPlayed.map(movie => {
     const lastMovie = moviesPlayed[moviesPlayed.length - 1].imdbID;
     id++;
 
-    if (moviesPlayed.imdbID === lastMovie) {
+    if (movie.imdbID === lastMovie) {
       return (
         <li key={id} style={{ textDecoration: "line-through" }}>
-          {moviesPlayed.title}
+          {movie.Title}
         </li>
       );
-    } else return <li key={id}>{moviesPlayed.title}</li>;
+    } else return <li key={id}>{movie.Title}</li>;
   });
 
   const scoreSentence = () => {
@@ -36,24 +37,24 @@ function GameOver() {
   };
 
   const playAgain = () => {
-    // dispatch({ type: "START_GAME" });
-    // dispatch({ type: "CLEAR_LETTERS" });
-    // dispatch({ type: "GAME_OVER" });
-    // dispatch({ type: "CLEAR_GUESSES" });
-    // dispatch({ type: "ADD_MOVIES" });
+    dispatch({ type: "INITIAL_STATE_GAME" });
+    dispatch({ type: "INITIAL_STATE_MOVIE" });
+    dispatch({ type: "START_GAME" });
   };
 
   return (
     <div>
       <h1>Game Over</h1>
 
-      {/*  <p>
+      <p>
         {interjection()}, {scoreSentence()}! {insultingSentence()}, {slur()}!
         Even your mom managed to get {random.to(5) + moviesPlayed.length - 1}{" "}
         right when we played last night, ha!
       </p>
 
-      {random.boolean() && (
+      <ol>{movieList}</ol>
+
+      {/* {random.boolean() && (
         <p>
           Consider{" "}
           <a
@@ -66,14 +67,12 @@ function GameOver() {
           {adjective()} as you must have at least one redeeming quality. Or am I
           wrong, {slur()}?
         </p>
-      )}
+      )} */}
 
-      <ol>{moviesPlayed}</ol>
-
-      <button>About</button>
+      {/* <button>About</button> */}
       <button onClick={playAgain}>Play Again?</button>
 
-      <About /> */}
+      {/* <About /> */}
     </div>
   );
 }

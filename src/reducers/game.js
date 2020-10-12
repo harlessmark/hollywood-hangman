@@ -3,13 +3,20 @@ const initialState = {
   score: null,
 };
 
-export default (state = initialState, { type }) => {
-  if (type === "INIT_GAME") return { ...state, score: 0 };
+export default (state = initialState, { type, data }) => {
+  if (type === "START_GAME") return { ...state, score: 0 };
+
+  if (type === "ADD_TO_MOVIES_PLAYED") {
+    state.moviesPlayed = [...state.moviesPlayed, data];
+    return { ...state };
+  }
 
   if (type === "INCREMENT_SCORE") {
     state.score += 1;
     return { ...state };
   }
+
+  if (type === "INITIAL_STATE_GAME") return initialState;
 
   return state;
 };

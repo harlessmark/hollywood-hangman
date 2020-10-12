@@ -22,6 +22,7 @@ function Game() {
       data.Plot = data.Plot.replace(re, blanks);
 
       dispatch({ type: "ADD_MOVIE", data });
+      dispatch({ type: "ADD_TO_MOVIES_PLAYED", data });
     };
 
     getMovie();

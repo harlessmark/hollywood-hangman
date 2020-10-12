@@ -12,16 +12,22 @@ import { useDispatch, useSelector } from "react-redux";
 
 function App() {
   const { score } = useSelector(state => state.game);
-  const { tries } = useSelector(state => state.movie);
+  const { tries, gotCorrect } = useSelector(state => state.movie);
   const dispatch = useDispatch();
 
-  const startGame = () => dispatch({ type: "INIT_GAME" });
+  if (gotCorrect) {
+    setTimeout(() => {
+      dispatch({ type: "INITIAL_STATE_MOVIE" });
+    }, 3000);
+  }
+
+  const startGame = () => dispatch({ type: "START_GAME" });
 
   return (
     <div className='App App-header'>
       <Mark />
       {score === null && <Instructions startGame={startGame} />}
-      {score !== null && tries !== 0 && <Game />}
+      {score !== null && tries !== 0 && gotCorrect === false && <Game />}
       {tries === 0 && <GameOver />}
     </div>
   );
