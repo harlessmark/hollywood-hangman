@@ -7,8 +7,8 @@ import Mark from "./components/Mark";
 
 import { useDispatch, useSelector } from "react-redux";
 
-// TODO error handling message from utils
-// * https://countapi.xyz/
+// TODO error handling message from utils and remove fetch from it
+// TODO Google Analytics
 
 function App() {
   const { score } = useSelector(state => state.game);
