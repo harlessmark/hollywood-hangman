@@ -1,3 +1,11 @@
+h1 {
+  font-family: "Roboto Mono", monospace;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
 .blank-movie {
   letter-spacing: 3px;
 }

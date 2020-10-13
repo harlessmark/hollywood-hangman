@@ -34,7 +34,7 @@ for movie in all_movies:
     if "English" in res['Language']:
         english_movies.append(movie)
 
-# * movies to remove because of too many numbers in title
+# movies to remove because of too many numbers in title
 movies_to_remove = ['tt1306980', 'tt8579674']
 
 for movie in movies_to_remove:

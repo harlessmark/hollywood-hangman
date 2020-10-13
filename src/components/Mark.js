@@ -1,12 +1,7 @@
 import React from "react";
-import { ReactComponent as MarkSVG } from "../mark.svg";
 
 function Mark() {
-  return (
-    <div>
-      <MarkSVG />
-    </div>
-  );
+  return <div>SVG</div>;
 }
 
 export default Mark;
