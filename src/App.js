@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Instructions from "./components/Instructions";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
 
 import { useDispatch, useSelector } from "react-redux";
+import ReactGa from "react-ga";
 
 // TODO error handling message from utils and remove fetch from it
 // TODO Google Analytics
