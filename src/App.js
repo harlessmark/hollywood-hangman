@@ -14,6 +14,12 @@ function App() {
   const { tries, gotCorrect } = useSelector(state => state.movie);
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    // Google Analytics
+    ReactGa.initialize("UA-179501427-4");
+    ReactGa.pageview(window.location.pathname + window.location.search);
+  }, []);
+
   if (gotCorrect) {
     setTimeout(() => {
       dispatch({ type: "INITIAL_STATE_MOVIE" });
