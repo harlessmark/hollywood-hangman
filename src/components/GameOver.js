@@ -26,8 +26,8 @@ function GameOver() {
 
   const splitDialogue = () => {
     // splits dialogue to add css styling to score and slur
-    const beforeSlur = dialogue.split("slur")[0];
-    const afterSlur = dialogue.split("slur")[1];
+    const beforeSlur = dialogue.split("_slur_")[0];
+    const afterSlur = dialogue.split("_slur_")[1];
 
     if (scoreSentence().includes("_any_")) {
       const beforeSplit = beforeSlur.split("_any_")[0];

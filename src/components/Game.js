@@ -4,7 +4,7 @@ import GuessedLetters from "./GuessedLetters";
 import Score from "./Score";
 import Movie from "./Movie";
 
-import movies from "../data/all_movies.json";
+import movie_data from "../data/movie_data.json";
 import { useDispatch } from "react-redux";
 const TotallyRandom = require("totally-random");
 
@@ -12,35 +12,21 @@ function Game() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const getMovie = async () => {
-      const random = new TotallyRandom();
+    const random = new TotallyRandom();
 
-      // gets random movie ID
-      const movieID = random.array(movies);
-      const movieAPI = `https://www.omdbapi.com/?i=${movieID}&apikey=80e59555`;
-      // const movieAPI = `http://www.omdbapi.com/?i=tt1535109&apikey=80e59555`;
+    // gets random movie
+    const randomMovie = random.array(movie_data);
 
-      try {
-        const res = await fetch(movieAPI);
-        const data = await res.json();
+    // wraps year in () for smoother rendering
+    randomMovie.Year = `(${randomMovie.Year})`;
 
-        // wraps year in () for smoother rendering
-        data.Year = `(${data.Year})`;
+    // removes title from plot
+    const blanks = "_".repeat(randomMovie.Title.length);
+    const re = new RegExp(randomMovie.Title, "gi");
+    randomMovie.Plot = randomMovie.Plot.replace(re, blanks);
 
-        // removes title from plot
-        const blanks = "_".repeat(data.Title.length);
-        const re = new RegExp(data.Title, "gi");
-        data.Plot = data.Plot.replace(re, blanks);
-
-        dispatch({ type: "ADD_MOVIE", data });
-        dispatch({ type: "ADD_TO_MOVIES_PLAYED", data });
-      } catch (error) {
-        // TODO display error message
-        console.log(error);
-      }
-    };
-
-    getMovie();
+    dispatch({ type: "ADD_MOVIE", randomMovie });
+    dispatch({ type: "ADD_TO_MOVIES_PLAYED", randomMovie });
   }, [dispatch]);
 
   return (

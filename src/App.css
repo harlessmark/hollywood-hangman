@@ -7,6 +7,11 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
+sub {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+}
+
 .wrong-letter,
 .final-score {
   color: #f25042;

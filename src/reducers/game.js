@@ -3,11 +3,11 @@ const initialState = {
   score: null,
 };
 
-export default (state = initialState, { type, data }) => {
+export default (state = initialState, { type, randomMovie }) => {
   if (type === "START_GAME") return { ...state, score: 0 };
 
   if (type === "ADD_TO_MOVIES_PLAYED") {
-    state.moviesPlayed = [...state.moviesPlayed, data];
+    state.moviesPlayed = [...state.moviesPlayed, randomMovie];
     return { ...state };
   }
 

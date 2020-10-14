@@ -4,6 +4,7 @@ import Instructions from "./components/Instructions";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
 import Mark from "./components/Mark";
+import Message from "./components/Message";
 
 import { useDispatch, useSelector } from "react-redux";
 import ReactGa from "react-ga";
@@ -31,9 +32,9 @@ function App() {
 
   return (
     <div className='App'>
+      {score === null && <Message />}
       <Mark />
-      {gotCorrect === true &&
-        "Correct! Gotta put something here but thanks for playing."}
+      {gotCorrect === true && "Correct!"}
       {score === null && <Instructions startGame={startGame} />}
       {score !== null && tries !== 0 && gotCorrect === false && <Game />}
       {tries === 0 && <GameOver />}
