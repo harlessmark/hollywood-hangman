@@ -1,20 +1,31 @@
 h1 {
   font-family: "Roboto Mono", monospace;
+  color: #020826;
 }
 
 p {
   font-family: "Montserrat", sans-serif;
 }
 
-.blank-movie {
+.wrong-letter {
+  color: #f25042;
+}
+
+.slur {
+  font-weight: bold;
+}
+
+.guessed-letters {
+  font-weight: bold;
   letter-spacing: 3px;
+}
+
+.blank-movie {
+  letter-spacing: 2px;
 }
 
 .App {
   text-align: center;
-}
-
-.App-header {
   background-color: #f9f4ef;
   min-height: 100vh;
   display: flex;
@@ -23,10 +34,6 @@ p {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #716040;
-}
-
-.mark {
-  color: #f25042;
 }
 
 button {

@@ -10,6 +10,33 @@ function GameOver() {
   const dispatch = useDispatch();
   const { moviesPlayed } = useSelector(state => state.game);
 
+  const scoreSentence = () => {
+    if (moviesPlayed.length - 1 === 0) {
+      return "you couldn't even get one correct";
+    } else if (moviesPlayed.length - 1 === 1) {
+      return "you only got 1 movie correct";
+    } else {
+      return `you only got ${moviesPlayed.length - 1} correct`;
+    }
+  };
+
+  const dialogue = `${interjection()}, ${scoreSentence()}! ${insultingSentence()}, you SLUR! Even
+  your mom managed to get ${random.to(5) + moviesPlayed.length - 1} right
+  when we played last night, ha!`;
+
+  const splitDialogue = () => {
+    const firstText = dialogue.split("SLUR")[0];
+    const secondText = dialogue.split("SLUR")[1];
+
+    return (
+      <div>
+        {firstText}
+        <span className='slur'>{slur()}</span>
+        {secondText}
+      </div>
+    );
+  };
+
   // displays movie data on screen
   let id = 0;
   const movieList = moviesPlayed.map(movie => {
@@ -25,16 +52,6 @@ function GameOver() {
     } else return <li key={id}>{movie.Title}</li>;
   });
 
-  const scoreSentence = () => {
-    if (moviesPlayed.length - 1 === 0) {
-      return "you couldn't even get one correct";
-    } else if (moviesPlayed.length - 1 === 1) {
-      return "you only got 1 movie correct";
-    } else {
-      return `you only got ${moviesPlayed.length - 1} correct`;
-    }
-  };
-
   const playAgain = () => {
     dispatch({ type: "INITIAL_STATE_GAME" });
     dispatch({ type: "INITIAL_STATE_MOVIE" });
@@ -45,11 +62,7 @@ function GameOver() {
     <div>
       <h1>Game Over</h1>
 
-      <p>
-        {interjection()}, {scoreSentence()}! {insultingSentence()}, {slur()}!
-        Even your mom managed to get {random.to(5) + moviesPlayed.length - 1}{" "}
-        right when we played last night, ha!
-      </p>
+      <p>{splitDialogue()}</p>
 
       <ol>{movieList}</ol>
 

@@ -14,7 +14,7 @@ function Title() {
   }
 
   return (
-    <h1 className='blank-movie' style={{ color: "#f25042" }}>
+    <h1 className='blank-movie'>
       <b>
         {movie?.displayTitle} {movie?.data?.year}
       </b>

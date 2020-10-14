@@ -6,7 +6,7 @@ function Instructions(props) {
 
   const dialogue = [
     {
-      mark: `Hey, ${slur()}! I heard you know a lot about movies. Doubt you know more than me, ha!`,
+      mark: `Hey, you SLUR! I heard you know a lot about movies. Doubt you know more than me, ha!`,
       player: "Try me",
     },
     {
@@ -22,7 +22,7 @@ function Instructions(props) {
       player: "Okay",
     },
     {
-      mark: `Then I'll give you some hints and you have to guess the name of the movie. Got that, ${slur()}?`,
+      mark: `Then I'll give you some hints and you have to guess the name of the movie. Got that, you SLUR?`,
       player: "Got it",
     },
     {
@@ -30,13 +30,29 @@ function Instructions(props) {
       player: "Piece of cake",
     },
     {
-      mark: `If not then game over, ha! Are you ready to play, ${slur()}?`,
+      mark: `If not then game over, ha! Are you ready to play, you SLUR?`,
       player: "Start the game",
     },
   ];
+
+  const splitDialogue = () => {
+    if (dialogue[num].mark.includes("SLUR")) {
+      const firstText = dialogue[num].mark.split("SLUR")[0];
+      const secondText = dialogue[num].mark.split("SLUR")[1];
+
+      return (
+        <div>
+          {firstText}
+          <span className='slur'>{slur()}</span>
+          {secondText}
+        </div>
+      );
+    } else return dialogue[num].mark;
+  };
+
   return (
     <div>
-      <p>{dialogue[num].mark}</p>
+      <p>{splitDialogue()}</p>
 
       {/* hides when final dialogue is shown */}
       {dialogue[num].player !== "Start the game" && (

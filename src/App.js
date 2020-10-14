@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import ReactGa from "react-ga";
 
 // TODO error handling message from utils and remove fetch from it
-// TODO Google Analytics
 
 function App() {
   const { score } = useSelector(state => state.game);
@@ -30,7 +29,7 @@ function App() {
   const startGame = () => dispatch({ type: "START_GAME" });
 
   return (
-    <div className='App App-header'>
+    <div className='App'>
       {score === null && <Instructions startGame={startGame} />}
       {score !== null && tries !== 0 && gotCorrect === false && <Game />}
       {tries === 0 && <GameOver />}
