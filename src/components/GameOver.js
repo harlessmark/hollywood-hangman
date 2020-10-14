@@ -20,14 +20,14 @@ function GameOver() {
     }
   };
 
-  const dialogue = `${interjection()}, ${scoreSentence()}! ${insultingSentence()}, you SLUR! Even
+  const dialogue = `${interjection()}, ${scoreSentence()}! ${insultingSentence()}, you _slur_! Even
   your mom managed to get ${random.to(5) + moviesPlayed.length - 1} right
   when we played last night, ha!`;
 
   const splitDialogue = () => {
     // splits dialogue to add css styling to score and slur
-    const beforeSlur = dialogue.split("SLUR")[0];
-    const afterSlur = dialogue.split("SLUR")[1];
+    const beforeSlur = dialogue.split("slur")[0];
+    const afterSlur = dialogue.split("slur")[1];
 
     if (scoreSentence().includes("_any_")) {
       const beforeSplit = beforeSlur.split("_any_")[0];
@@ -100,22 +100,12 @@ function GameOver() {
 
       <ol>{movieList}</ol>
 
-      {/* {random.boolean() && (
-        <p>
-          Consider{" "}
-          <a
-            href='https://buymeacoffee.com/2spacemilk'
-            target='_blank'
-            rel='noopener noreferrer'>
-            buying me a coffee
-          </a>{" "}
-          if you enjoyed playing Hollywood Hangman. Even someone as{" "}
-          {adjective()} as you must have at least one redeeming quality. Or am I
-          wrong, {slur()}?
-        </p>
-      )} */}
-
-      {/* <button>About</button> */}
+      <a
+        href='https://buymeacoffee.com/2spacemilk'
+        target='_blank'
+        rel='noopener noreferrer'>
+        <button> Buy Me a Coffee</button>
+      </a>
       <button onClick={playAgain}>Play Again?</button>
 
       {/* <About /> */}

@@ -28,7 +28,7 @@ p {
 
 .App {
   text-align: center;
-  background-color: #f9f4ef;
+  background-color: #fffffe;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,16 +39,20 @@ p {
 }
 
 button {
+  font-family: "Montserrat", sans-serif;
   color: #fffffe;
   background-color: #8c7851;
   border-radius: 10px;
   box-shadow: 8px 8px rgb(27, 27, 27);
   margin-left: 1rem;
-  padding: 1rem 4rem;
+  padding: 1rem 3rem;
   border: 2px solid #1b1b1b;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 button:hover {
+  cursor: pointer;
   position: relative;
   top: -3px;
 }

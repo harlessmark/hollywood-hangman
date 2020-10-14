@@ -146,7 +146,7 @@ const nouns = [
   "dweeb",
   "fart",
   "filth",
-  "flatearther",
+  "flat-earther",
   "fool",
   "garbage",
   "geezer",

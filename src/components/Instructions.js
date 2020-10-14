@@ -26,7 +26,7 @@ function Instructions(props) {
       player: "Got it",
     },
     {
-      mark: `You have only _6_ guesses per movie! If you get the title correct, you move onto the next round!`,
+      mark: `You only have _6_ guesses per movie! If you get the title correct, you move onto the next round!`,
       player: "Piece of cake",
     },
     {
