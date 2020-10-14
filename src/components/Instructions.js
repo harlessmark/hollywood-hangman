@@ -6,7 +6,7 @@ function Instructions(props) {
 
   const dialogue = [
     {
-      mark: `Hey, you SLUR! I heard you know a lot about movies. Doubt you know more than me, ha!`,
+      mark: `Hey, you _slur_! I heard you know a lot about movies. Doubt you know more than me, ha!`,
       player: "Try me",
     },
     {
@@ -22,28 +22,40 @@ function Instructions(props) {
       player: "Okay",
     },
     {
-      mark: `Then I'll give you some hints and you have to guess the name of the movie. Got that, you SLUR?`,
+      mark: `Then I'll give you some hints and you have to guess the name of the movie. Got that, you _slur_?`,
       player: "Got it",
     },
     {
-      mark: `You have only 6 guesses per movie! If you get the title correct, you move onto the next round!`,
+      mark: `You have only _6_ guesses per movie! If you get the title correct, you move onto the next round!`,
       player: "Piece of cake",
     },
     {
-      mark: `If not then game over, ha! Are you ready to play, you SLUR?`,
+      mark: `If not then game over, ha! Are you ready to play, you _slur_?`,
       player: "Start the game",
     },
   ];
 
   const splitDialogue = () => {
-    if (dialogue[num].mark.includes("SLUR")) {
-      const firstText = dialogue[num].mark.split("SLUR")[0];
-      const secondText = dialogue[num].mark.split("SLUR")[1];
+    if (dialogue[num].mark.includes("_slur_")) {
+      const firstText = dialogue[num].mark.split("_slur_")[0];
+      const secondText = dialogue[num].mark.split("_slur_")[1];
 
       return (
         <div>
           {firstText}
           <span className='slur'>{slur()}</span>
+          {secondText}
+        </div>
+      );
+    }
+    if (dialogue[num].mark.includes("_6_")) {
+      const firstText = dialogue[num].mark.split("_6_")[0];
+      const secondText = dialogue[num].mark.split("_6_")[1];
+
+      return (
+        <div>
+          {firstText}
+          <span className='final-score'>6</span>
           {secondText}
         </div>
       );

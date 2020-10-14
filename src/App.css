@@ -7,8 +7,10 @@ p {
   font-family: "Montserrat", sans-serif;
 }
 
-.wrong-letter {
+.wrong-letter,
+.final-score {
   color: #f25042;
+  font-weight: bold;
 }
 
 .slur {

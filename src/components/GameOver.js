@@ -12,11 +12,11 @@ function GameOver() {
 
   const scoreSentence = () => {
     if (moviesPlayed.length - 1 === 0) {
-      return "you couldn't even get one correct";
+      return "you didn't get _any_ correct";
     } else if (moviesPlayed.length - 1 === 1) {
-      return "you only got 1 movie correct";
+      return "you only got _one_ movie correct";
     } else {
-      return `you only got ${moviesPlayed.length - 1} correct`;
+      return `you only got _num_ correct`;
     }
   };
 
@@ -25,16 +25,50 @@ function GameOver() {
   when we played last night, ha!`;
 
   const splitDialogue = () => {
-    const firstText = dialogue.split("SLUR")[0];
-    const secondText = dialogue.split("SLUR")[1];
+    // splits dialogue to add css styling to score and slur
+    const beforeSlur = dialogue.split("SLUR")[0];
+    const afterSlur = dialogue.split("SLUR")[1];
 
-    return (
-      <div>
-        {firstText}
-        <span className='slur'>{slur()}</span>
-        {secondText}
-      </div>
-    );
+    if (scoreSentence().includes("_any_")) {
+      const beforeSplit = beforeSlur.split("_any_")[0];
+      const afterSplit = beforeSlur.split("_any_")[1];
+
+      return (
+        <div>
+          {beforeSplit}
+          <span className='final-score'>any</span>
+          {afterSplit}
+          <span className='slur'>{slur()}</span>
+          {afterSlur}
+        </div>
+      );
+    } else if (scoreSentence().includes("_one_")) {
+      const beforeSplit = beforeSlur.split("_one_")[0];
+      const afterSplit = beforeSlur.split("_one_")[1];
+
+      return (
+        <div>
+          {beforeSplit}
+          <span className='final-score'>one</span>
+          {afterSplit}
+          <span className='slur'>{slur()}</span>
+          {afterSlur}
+        </div>
+      );
+    } else {
+      const beforeSplit = beforeSlur.split("_num_")[0];
+      const afterSplit = beforeSlur.split("_num_")[1];
+
+      return (
+        <div>
+          {beforeSplit}
+          <span className='final-score'>{moviesPlayed.length - 1}</span>
+          {afterSplit}
+          <span className='slur'>{slur()}</span>
+          {afterSlur}
+        </div>
+      );
+    }
   };
 
   // displays movie data on screen
