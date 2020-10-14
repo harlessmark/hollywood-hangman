@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./App.css";
 import Instructions from "./components/Instructions";
 import Game from "./components/Game";
@@ -6,14 +6,20 @@ import GameOver from "./components/GameOver";
 import Mark from "./components/Mark";
 
 import { useDispatch, useSelector } from "react-redux";
+import ReactGa from "react-ga";
 
-// TODO error handling message from utils
-// * https://countapi.xyz/
+// TODO error handling message from utils and remove fetch from it
 
 function App() {
   const { score } = useSelector(state => state.game);
   const { tries, gotCorrect } = useSelector(state => state.movie);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    // Google Analytics
+    ReactGa.initialize("UA-179501427-4");
+    ReactGa.pageview(window.location.pathname + window.location.search);
+  }, []);
 
   if (gotCorrect) {
     setTimeout(() => {
@@ -24,7 +30,7 @@ function App() {
   const startGame = () => dispatch({ type: "START_GAME" });
 
   return (
-    <div className='App App-header'>
+    <div className='App'>
       <Mark />
       {score === null && <Instructions startGame={startGame} />}
       {score !== null && tries !== 0 && gotCorrect === false && <Game />}

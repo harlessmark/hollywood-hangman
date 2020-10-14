@@ -251,7 +251,6 @@ const interjections = [
   "Yeah",
 ];
 
-export const adjective = () => random.array(adjectives);
-export const slur = () => `you ${adjective()} ${random.array(nouns)}`;
+export const slur = () => `${random.array(adjectives)} ${random.array(nouns)}`;
 export const insultingSentence = () => random.array(sentences);
 export const interjection = () => random.array(interjections);
