@@ -41,11 +41,11 @@ function Instructions(props) {
       const secondText = dialogue[num].mark.split("_slur_")[1];
 
       return (
-        <div>
+        <>
           {firstText}
           <span className='slur'>{slur()}</span>
           {secondText}
-        </div>
+        </>
       );
     }
     if (dialogue[num].mark.includes("_6_")) {

@@ -10,7 +10,7 @@ const TotallyRandom = require("totally-random");
 
 function Game() {
   const dispatch = useDispatch();
-  const [isMobile, setIsMobile] = useState(false);
+  const [, setIsMobile] = useState(false);
 
   useEffect(() => {
     if (document.documentElement.clientWidth <= 1024) {
