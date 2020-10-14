@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import TriesLeft from "./TriesLeft";
 import GuessedLetters from "./GuessedLetters";
 import Score from "./Score";
@@ -10,8 +10,12 @@ const TotallyRandom = require("totally-random");
 
 function Game() {
   const dispatch = useDispatch();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    if (document.documentElement.clientWidth <= 1024) {
+      setIsMobile(true);
+    }
     const random = new TotallyRandom();
 
     // gets random movie

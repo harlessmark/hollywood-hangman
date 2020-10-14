@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 import Title from "./Title";
 import KeyboardEventHandler from "react-keyboard-event-handler";
 import { useDispatch, useSelector } from "react-redux";
+
+import Keyboard from "react-simple-keyboard";
+import "react-simple-keyboard/build/css/index.css";
 
 function Movie() {
   const dispatch = useDispatch();
@@ -24,6 +27,17 @@ function Movie() {
     }
   };
 
+  const [layout] = useState("default");
+  const keyboard = useRef();
+
+  const onKeyPress = letter => {
+    if (letter === "☕️") {
+      window.open("http://2spacemilk.com", "_blank");
+    } else {
+      console.log(letter);
+    }
+  };
+
   return (
     <div>
       <Title />
@@ -33,6 +47,27 @@ function Movie() {
       <p>Actors: {data?.actors}</p>
       <p>Director: {data?.director}</p>
       <p style={{ color: "rgba(0,0,0,.3)" }}>dev use: {data?.imdbID}</p>
+
+      <Keyboard
+        keyboardRef={r => (keyboard.current = r)}
+        layoutName={layout}
+        onKeyPress={onKeyPress}
+        theme={"hg-theme-default hg-layout-default myTheme"}
+        layout={{
+          default: [
+            "Q W E R T Y U I O P",
+            "A S D F G H J K L",
+            "Z X C V B N M ☕️",
+          ],
+        }}
+        buttonTheme={[
+          {
+            class: "hg-red",
+            buttons: "M",
+          },
+        ]}
+        className='pin-bottom'
+      />
 
       <KeyboardEventHandler
         handleKeys={[..."qwertyuiopasdfghjklzxcvbnm"]}
