@@ -32,6 +32,8 @@ function App() {
   return (
     <div className='App'>
       <Mark />
+      {gotCorrect === true &&
+        "Correct! Gotta put something here but thanks for playing."}
       {score === null && <Instructions startGame={startGame} />}
       {score !== null && tries !== 0 && gotCorrect === false && <Game />}
       {tries === 0 && <GameOver />}
