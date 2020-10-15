@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Button from "../styled/Button";
 import { slur } from "../insults";
 
 function Instructions(props) {
@@ -68,17 +69,17 @@ function Instructions(props) {
 
       {/* hides when final dialogue is shown */}
       {dialogue[num].player !== "Start the game" && (
-        <button onClick={props.startGame}>Skip All</button>
+        <Button onClick={props.startGame}>Skip All</Button>
       )}
 
       {/* hides when final dialogue is shown */}
       {dialogue[num].player !== "Start the game" && (
-        <button onClick={() => setNum(num + 1)}>{dialogue[num].player}</button>
+        <Button onClick={() => setNum(num + 1)}>{dialogue[num].player}</Button>
       )}
 
       {/* shows when final dialogue is shown */}
       {dialogue[num].player === "Start the game" && (
-        <button onClick={props.startGame}>{dialogue[num].player}</button>
+        <Button onClick={props.startGame}>{dialogue[num].player}</Button>
       )}
     </div>
   );

@@ -9,14 +9,24 @@ import Message from "./components/Message";
 import { useDispatch, useSelector } from "react-redux";
 import ReactGa from "react-ga";
 
-// TODO error handling message from utils and remove fetch from it
-
 function App() {
   const { score } = useSelector(state => state.game);
   const { tries, gotCorrect } = useSelector(state => state.movie);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      // true for mobile device
+      alert("mobile device");
+    } else {
+      // false for not mobile device
+      alert("not mobile device");
+    }
+
     // Google Analytics
     ReactGa.initialize("UA-179501427-4");
     ReactGa.pageview(window.location.pathname + window.location.search);
@@ -31,7 +41,7 @@ function App() {
   const startGame = () => dispatch({ type: "START_GAME" });
 
   return (
-    <div className='App'>
+    <div>
       {score === null && <Message />}
       <Mark />
       {gotCorrect === true && "Correct!"}

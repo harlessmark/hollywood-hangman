@@ -1,3 +1,9 @@
+html {
+  background-color: #fffffe;
+  color: #716040;
+  margin: 1rem 1rem 155px 1rem;
+}
+
 h1 {
   font-family: "Roboto Mono", monospace;
   color: #020826;
@@ -31,54 +37,27 @@ sub {
   letter-spacing: 2px;
 }
 
-.App {
-  text-align: center;
-  background-color: #fffffe;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #716040;
-}
-
-button {
-  font-family: "Montserrat", sans-serif;
-  color: #fffffe;
-  background-color: #8c7851;
-  border-radius: 10px;
-  box-shadow: 8px 8px rgb(27, 27, 27);
-  margin-left: 1rem;
-  padding: 1rem 3rem;
-  border: 2px solid #1b1b1b;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
 button:hover {
   cursor: pointer;
+  box-shadow: 9px 10px 1px rgb(2, 8, 38, 0.96);
   position: relative;
-  top: -3px;
+  bottom: 1px;
 }
 
 button:focus {
   outline: none;
 }
 
-/* @media only screen and (max-width: 1366px) { */
 .simple-keyboard.hg-theme-default.myTheme {
   background-color: #eaddcf;
   color: #020826;
-  font-family: "Montserrat", sans-serif;
-  position: absolute;
+  font-family: "Roboto Mono", monospace;
+  position: fixed;
   bottom: 0;
-  /* display: none; */
+  margin: -1rem 0 0 -1rem;
 }
 
 .simple-keyboard.hg-layout-default .hg-button.hg-red {
   color: #f25042;
   text-decoration: #020826 line-through;
-  /* display: none; */
 }
-/* } */
