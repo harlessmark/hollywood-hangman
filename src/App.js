@@ -4,7 +4,6 @@ import Instructions from "./components/Instructions";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
 import Mark from "./components/Mark";
-import Message from "./components/Message";
 
 import { useDispatch, useSelector } from "react-redux";
 import ReactGa from "react-ga";
@@ -15,22 +14,17 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      // true for mobile device
-      alert("mobile device");
-    } else {
-      // false for not mobile device
-      alert("not mobile device");
+    // checks if device is mobile
+    const re = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+
+    if (re.test(navigator.userAgent)) {
+      dispatch({ type: "IS_MOBILE" });
     }
 
     // Google Analytics
     ReactGa.initialize("UA-179501427-4");
     ReactGa.pageview(window.location.pathname + window.location.search);
-  }, []);
+  }, [dispatch]);
 
   if (gotCorrect) {
     setTimeout(() => {
@@ -42,7 +36,6 @@ function App() {
 
   return (
     <div>
-      {score === null && <Message />}
       <Mark />
       {gotCorrect === true && "Correct!"}
       {score === null && <Instructions startGame={startGame} />}

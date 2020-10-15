@@ -7,9 +7,10 @@ import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
 
 function Movie() {
-  const dispatch = useDispatch();
   const { letters } = useSelector(state => state.movie);
   const { data } = useSelector(state => state.movie);
+  const isMobile = useSelector(state => state.isMobile);
+  const dispatch = useDispatch();
 
   const letterCheck = letter => {
     // checks if letter has already been entered
@@ -48,26 +49,28 @@ function Movie() {
       <p>Director: {data?.director}</p>
       <p style={{ color: "rgba(0,0,0,.3)" }}>dev use: {data?.imdbID}</p>
 
-      <Keyboard
-        keyboardRef={r => (keyboard.current = r)}
-        layoutName={layout}
-        onKeyPress={onKeyPress}
-        theme={"hg-theme-default hg-layout-default myTheme"}
-        layout={{
-          default: [
-            "Q W E R T Y U I O P",
-            "A S D F G H J K L",
-            "Z X C V B N M ☕️",
-          ],
-        }}
-        buttonTheme={[
-          {
-            class: "hg-red",
-            buttons: "M",
-          },
-        ]}
-        className='pin-bottom'
-      />
+      {isMobile && (
+        <Keyboard
+          keyboardRef={r => (keyboard.current = r)}
+          layoutName={layout}
+          onKeyPress={onKeyPress}
+          theme={"hg-theme-default hg-layout-default myTheme"}
+          layout={{
+            default: [
+              "Q W E R T Y U I O P",
+              "A S D F G H J K L",
+              "Z X C V B N M ☕️",
+            ],
+          }}
+          buttonTheme={[
+            {
+              class: "hg-red",
+              buttons: "M",
+            },
+          ]}
+          className='pin-bottom'
+        />
+      )}
 
       <KeyboardEventHandler
         handleKeys={[..."qwertyuiopasdfghjklzxcvbnm"]}
