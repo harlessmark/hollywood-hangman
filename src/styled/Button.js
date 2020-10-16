@@ -7,7 +7,7 @@ export default styled.button`
   border: 2px solid #020826;
   border-radius: 10px;
   height: 3rem;
-  width: 9.5rem;
+  width: 9rem;
   font-weight: bold;
   font-size: 1rem;
   color: #fffffe;

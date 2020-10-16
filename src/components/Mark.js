@@ -6,7 +6,7 @@ const Card = styled.div`
   border: 2px solid #020826;
   border-radius: 10px;
   font-family: "Montserrat", sans-serif;
-  box-shadow: 8px 8px rgb(2, 8, 38);
+  box-shadow: 8px 8px #020826;
   background-color: #f9f4ef;
   padding: 0.8rem;
 `;
@@ -24,20 +24,17 @@ const Speech = styled.p`
   border-radius: 10px;
 `;
 
-function Mark() {
+function Mark(props) {
   return (
     <Card>
       <div style={{ display: "flex", justifyContent: "flex-start" }}>
         <MarkSVG style={{ height: "100px", margin: "-10px" }} />
         <div>
           <H3>Mark, The Movie Buff</H3>
-          <p style={{ margin: "2px 0 0 1rem" }}>is being defensive</p>
+          <p style={{ margin: "2px 0 0 1rem" }}>{props.status}</p>
         </div>
       </div>
-      <Speech>
-        Hey, you deflated homewrecker! I heard you know a lot about movies.
-        Doubt you know more than me, ha!
-      </Speech>
+      <Speech>{props.dialogue}</Speech>
     </Card>
   );
 }
