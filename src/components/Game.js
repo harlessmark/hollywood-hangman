@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import TriesLeft from "./TriesLeft";
 import GuessedLetters from "./GuessedLetters";
 import Score from "./Score";

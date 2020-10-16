@@ -42,11 +42,11 @@ function Movie() {
         setButtonTheme([
           {
             class: "incorrect-letter",
-            buttons: (buttonTheme[0].buttons += letter.toUpperCase()),
+            buttons: (buttonTheme[0].buttons += `${letter.toUpperCase()} `),
           },
           {
             class: "correct-letter",
-            buttons: (buttonTheme[1].buttons += letter.toUpperCase()),
+            buttons: (buttonTheme[1].buttons += `${letter.toUpperCase()} `),
           },
         ]);
 
