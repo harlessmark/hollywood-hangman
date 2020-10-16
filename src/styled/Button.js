@@ -6,9 +6,8 @@ export default styled.button`
   background-color: #8c7851;
   border: 2px solid #020826;
   border-radius: 10px;
-  /* padding: 1rem 3rem; */
   height: 3rem;
-  width: 9rem;
+  width: 9.5rem;
   font-weight: bold;
   font-size: 1rem;
   color: #fffffe;

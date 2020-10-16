@@ -1,7 +1,7 @@
 html {
   background-color: #fffffe;
   color: #716040;
-  margin: 1rem 1rem 155px 1rem;
+  margin: 1.5rem 1.5rem 135px 1.5rem;
 }
 
 h1 {
@@ -54,14 +54,5 @@ button:focus {
   font-family: "Roboto Mono", monospace;
   position: fixed;
   bottom: 0;
-  margin: -1rem 0 0 -1rem;
-}
-
-.simple-keyboard.hg-layout-default .hg-button.incorrect-letter {
-  color: #f25042;
-  text-decoration: #020826 line-through;
-}
-
-.simple-keyboard.hg-layout-default .hg-button.correct-letter {
-  color: #f25042;
+  margin: -1.5rem 0 0 -1.5rem;
 }

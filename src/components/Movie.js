@@ -14,16 +14,6 @@ function Movie() {
 
   const [layout] = useState("default");
   const keyboard = useRef();
-  const [buttonTheme, setButtonTheme] = useState([
-    {
-      class: "incorrect-letter",
-      buttons: "",
-    },
-    {
-      class: "correct-letter",
-      buttons: "",
-    },
-  ]);
 
   const onKeyPress = letter => {
     if (letter === "☕️") {
@@ -39,20 +29,11 @@ function Movie() {
 
       if (re.test(data.title)) {
         // "tries" remains same if letter is in title
-        setButtonTheme([
-          {
-            class: "incorrect-letter",
-            buttons: (buttonTheme[0].buttons += `${letter.toUpperCase()} `),
-          },
-          {
-            class: "correct-letter",
-            buttons: (buttonTheme[1].buttons += `${letter.toUpperCase()} `),
-          },
-        ]);
 
         dispatch({ type: "CORRECT_GUESS", letter });
       } else {
         // tries-- if letter is not in title
+
         dispatch({ type: "DECREMENT_TRIES" });
       }
     }
@@ -62,11 +43,13 @@ function Movie() {
     <div>
       <Title />
 
-      {/* <p>{data?.title}</p> */}
+      <p>
+        {data?.title}{" "}
+        <span style={{ color: "rgba(0,0,0,.2)" }}> {data?.imdbID}</span>
+      </p>
       <p>{data?.plot}</p>
       <p>Actors: {data?.actors}</p>
       <p>Director: {data?.director}</p>
-      <p style={{ color: "rgba(0,0,0,.3)" }}>dev use: {data?.imdbID}</p>
 
       {isMobile && (
         <Keyboard
@@ -81,7 +64,6 @@ function Movie() {
               "Z X C V B N M ☕️",
             ],
           }}
-          buttonTheme={buttonTheme}
           className='pin-bottom'
         />
       )}

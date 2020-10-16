@@ -67,20 +67,24 @@ function Instructions(props) {
     <div>
       <p>{splitDialogue()}</p>
 
-      {/* hides when final dialogue is shown */}
-      {dialogue[num].player !== "Start the game" && (
-        <Button onClick={props.startGame}>Skip All</Button>
-      )}
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {/* hides when final dialogue is shown */}
+        {dialogue[num].player !== "Start the game" && (
+          <Button onClick={props.startGame}>Skip All</Button>
+        )}
 
-      {/* hides when final dialogue is shown */}
-      {dialogue[num].player !== "Start the game" && (
-        <Button onClick={() => setNum(num + 1)}>{dialogue[num].player}</Button>
-      )}
+        {/* hides when final dialogue is shown */}
+        {dialogue[num].player !== "Start the game" && (
+          <Button onClick={() => setNum(num + 1)}>
+            {dialogue[num].player}
+          </Button>
+        )}
 
-      {/* shows when final dialogue is shown */}
-      {dialogue[num].player === "Start the game" && (
-        <Button onClick={props.startGame}>{dialogue[num].player}</Button>
-      )}
+        {/* shows when final dialogue is shown */}
+        {dialogue[num].player === "Start the game" && (
+          <Button onClick={props.startGame}>{dialogue[num].player}</Button>
+        )}
+      </div>
     </div>
   );
 }
