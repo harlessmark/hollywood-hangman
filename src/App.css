@@ -57,7 +57,11 @@ button:focus {
   margin: -1rem 0 0 -1rem;
 }
 
-.simple-keyboard.hg-layout-default .hg-button.hg-red {
+.simple-keyboard.hg-layout-default .hg-button.incorrect-letter {
   color: #f25042;
   text-decoration: #020826 line-through;
+}
+
+.simple-keyboard.hg-layout-default .hg-button.correct-letter {
+  color: #f25042;
 }

@@ -12,30 +12,49 @@ function Movie() {
   const isMobile = useSelector(state => state.isMobile);
   const dispatch = useDispatch();
 
+  const [layout] = useState("default");
+  const keyboard = useRef();
+  const [buttonTheme, setButtonTheme] = useState([
+    {
+      class: "incorrect-letter",
+      buttons: "",
+    },
+    {
+      class: "correct-letter",
+      buttons: "",
+    },
+  ]);
+
+  const onKeyPress = letter => {
+    if (letter === "☕️") {
+      window.open("http://2spacemilk.com", "_blank");
+    } else letterCheck(letter.toLowerCase());
+  };
+
   const letterCheck = letter => {
     // checks if letter has already been entered
     if (!letters.includes(letter)) {
       dispatch({ type: "ADD_LETTER", letter });
-
       const re = new RegExp(`${letter}`, "gi");
+
       if (re.test(data.title)) {
         // "tries" remains same if letter is in title
+        setButtonTheme([
+          {
+            class: "incorrect-letter",
+            buttons: buttonTheme[0].buttons,
+          },
+          {
+            class: "correct-letter",
+            buttons: (buttonTheme[0].buttons += letter.toUpperCase()),
+          },
+        ]);
+
         dispatch({ type: "CORRECT_GUESS", letter });
       } else {
         // tries-- if letter is not in title
         dispatch({ type: "DECREMENT_TRIES" });
       }
-    }
-  };
-
-  const [layout] = useState("default");
-  const keyboard = useRef();
-
-  const onKeyPress = letter => {
-    if (letter === "☕️") {
-      window.open("http://2spacemilk.com", "_blank");
-    } else {
-      console.log(letter);
     }
   };
 
@@ -62,12 +81,7 @@ function Movie() {
               "Z X C V B N M ☕️",
             ],
           }}
-          buttonTheme={[
-            {
-              class: "hg-red",
-              buttons: "M",
-            },
-          ]}
+          buttonTheme={buttonTheme}
           className='pin-bottom'
         />
       )}

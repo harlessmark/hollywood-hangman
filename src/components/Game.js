@@ -5,17 +5,14 @@ import Score from "./Score";
 import Movie from "./Movie";
 
 import movie_data from "../data/movie_data.json";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 const TotallyRandom = require("totally-random");
 
 function Game() {
+  const isMobile = useSelector(state => state.isMobile);
   const dispatch = useDispatch();
-  const [, setIsMobile] = useState(false);
 
   useEffect(() => {
-    if (document.documentElement.clientWidth <= 1024) {
-      setIsMobile(true);
-    }
     const random = new TotallyRandom();
 
     // gets random movie
@@ -37,7 +34,7 @@ function Game() {
     <div>
       <Score />
       <TriesLeft />
-      <GuessedLetters />
+      {!isMobile && <GuessedLetters />}
       <Movie />
     </div>
   );
