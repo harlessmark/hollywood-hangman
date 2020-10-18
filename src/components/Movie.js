@@ -15,6 +15,41 @@ function Movie() {
   const [layout] = useState("default");
   const keyboard = useRef();
 
+  const [correctLetters, setCorrectLetters] = useState([]);
+  const [incorrectLetters, setIncorrectLetters] = useState([]);
+
+  const getButtonTheme = () => {
+    const buttonTheme = [];
+
+    if (correctLetters.length) {
+      buttonTheme.push({
+        class: "correct-letter",
+        buttons: correctLetters.join(" "),
+      });
+    }
+
+    if (incorrectLetters.length) {
+      buttonTheme.push({
+        class: "incorrect-letter",
+        buttons: incorrectLetters.join(" "),
+      });
+    }
+
+    return buttonTheme;
+  };
+
+  const onCorrectLetter = letterLower => {
+    const letter = letterLower.toUpperCase();
+    setCorrectLetters([...correctLetters, letter]);
+    setIncorrectLetters([...incorrectLetters.filter(i => i !== letter)]);
+  };
+
+  const onIncorrectLetter = letterLower => {
+    const letter = letterLower.toUpperCase();
+    setIncorrectLetters([...incorrectLetters, letter]);
+    setCorrectLetters([...correctLetters.filter(i => i !== letter)]);
+  };
+
   const onKeyPress = letter => {
     if (letter === "☕️") {
       window.open("http://2spacemilk.com", "_blank");
@@ -29,11 +64,11 @@ function Movie() {
 
       if (re.test(data.title)) {
         // "tries" remains same if letter is in title
-
+        onCorrectLetter(letter);
         dispatch({ type: "CORRECT_GUESS", letter });
       } else {
+        onIncorrectLetter(letter);
         // tries-- if letter is not in title
-
         dispatch({ type: "DECREMENT_TRIES" });
       }
     }
@@ -45,7 +80,7 @@ function Movie() {
 
       <p>
         {data?.title}{" "}
-        <span style={{ color: "rgba(0,0,0,.2)" }}> {data?.imdbID}</span>
+        <span style={{ color: "rgba(0,0,0,.3)" }}>{data?.imdbID}</span>
       </p>
       <p>{data?.plot}</p>
       <p>Actors: {data?.actors}</p>
@@ -64,6 +99,7 @@ function Movie() {
               "Z X C V B N M ☕️",
             ],
           }}
+          buttonTheme={getButtonTheme()}
           className='pin-bottom'
         />
       )}

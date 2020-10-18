@@ -56,3 +56,15 @@ button:focus {
   bottom: 0;
   margin: -1.5rem 0 0 -1.5rem;
 }
+
+.correct-letter {
+  color: #f25042;
+  font-weight: bold;
+}
+
+.incorrect-letter {
+  color: #f25042;
+  text-decoration: black line-through;
+  text-decoration-thickness: 10px;
+  font-weight: bold;
+}

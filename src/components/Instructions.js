@@ -39,7 +39,7 @@ function Instructions(props) {
     },
     {
       mark: `If not then game over, ha! Are you ready to play, you _slur_?`,
-      status: "Think's he'll win",
+      status: "Thinks he'll win",
       player: "I'm ready",
     },
   ];
@@ -58,16 +58,17 @@ function Instructions(props) {
         </>
       );
     }
+
     if (dialogue[num].mark.includes("_6_")) {
       const firstText = dialogue[num].mark.split("_6_")[0];
       const secondText = dialogue[num].mark.split("_6_")[1];
 
       return (
-        <div>
+        <>
           {firstText}
           <span className='final-score'>6</span>
           {secondText}
-        </div>
+        </>
       );
     } else return dialogue[num].mark;
   };
@@ -78,14 +79,14 @@ function Instructions(props) {
 
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         {/* hides when final dialogue is shown */}
-        {dialogue[num].player !== "Start the game" && (
+        {dialogue[num].player !== "I'm ready" && (
           <Button onClick={props.startGame} style={{ marginTop: "1.5rem" }}>
             Skip All
           </Button>
         )}
 
         {/* hides when final dialogue is shown */}
-        {dialogue[num].player !== "Start the game" && (
+        {dialogue[num].player !== "I'm ready" && (
           <Button
             onClick={() => setNum(num + 1)}
             style={{ marginTop: "1.5rem" }}>
@@ -94,8 +95,10 @@ function Instructions(props) {
         )}
 
         {/* shows when final dialogue is shown */}
-        {dialogue[num].player === "Start the game" && (
-          <Button onClick={props.startGame} style={{ marginTop: "1.5rem" }}>
+        {dialogue[num].player === "I'm ready" && (
+          <Button
+            onClick={props.startGame}
+            style={{ marginTop: "1.5rem", flexGrow: "1" }}>
             {dialogue[num].player}
           </Button>
         )}

@@ -1,7 +1,8 @@
 import React from "react";
-// import About from "./About";
 import { interjection, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
+
+import Button from "../styled/Button";
 
 const TotallyRandom = require("totally-random");
 const random = new TotallyRandom();
@@ -9,6 +10,7 @@ const random = new TotallyRandom();
 function GameOver() {
   const dispatch = useDispatch();
   const { moviesPlayed } = useSelector(state => state.game);
+  const isMobile = useSelector(state => state.isMobile);
 
   const scoreSentence = () => {
     if (moviesPlayed.length - 1 === 0) {
@@ -34,26 +36,26 @@ function GameOver() {
       const afterSplit = beforeSlur.split("_any_")[1];
 
       return (
-        <div>
+        <>
           {beforeSplit}
           <span className='final-score'>any</span>
           {afterSplit}
           <span className='slur'>{slur()}</span>
           {afterSlur}
-        </div>
+        </>
       );
     } else if (scoreSentence().includes("_one_")) {
       const beforeSplit = beforeSlur.split("_one_")[0];
       const afterSplit = beforeSlur.split("_one_")[1];
 
       return (
-        <div>
+        <>
           {beforeSplit}
           <span className='final-score'>one</span>
           {afterSplit}
           <span className='slur'>{slur()}</span>
           {afterSlur}
-        </div>
+        </>
       );
     } else {
       const beforeSplit = beforeSlur.split("_num_")[0];
@@ -99,16 +101,17 @@ function GameOver() {
       <p>{splitDialogue()}</p>
 
       <ol>{movieList}</ol>
-
-      <a
-        href='https://buymeacoffee.com/2spacemilk'
-        target='_blank'
-        rel='noopener noreferrer'>
-        <button> Buy Me a Coffee</button>
-      </a>
-      <button onClick={playAgain}>Play Again?</button>
-
-      {/* <About /> */}
+      <div style={{ display: "flex", justifyContent: "space-between" }}>
+        {isMobile && (
+          <a
+            href='https://buymeacoffee.com/2spacemilk'
+            target='_blank'
+            rel='noopener noreferrer'>
+            <Button>Buy Coffee</Button>
+          </a>
+        )}
+        <Button onClick={playAgain}>Play Again?</Button>
+      </div>
     </div>
   );
 }
