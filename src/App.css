@@ -1,7 +1,7 @@
 html {
   background-color: #fffffe;
   color: #716040;
-  margin: 1rem 1rem 135px 1rem;
+  margin: 1rem 1rem 200px 1rem;
 }
 
 h1 {
@@ -43,17 +43,6 @@ a {
   text-align: center;
 }
 
-button:hover {
-  cursor: pointer;
-  box-shadow: 9px 10px 1px rgb(2, 8, 38, 0.96);
-  position: relative;
-  bottom: 1px;
-}
-
-button:focus {
-  outline: none;
-}
-
 .simple-keyboard.hg-theme-default.myTheme {
   background-color: #eaddcf;
   color: #020826;
@@ -71,6 +60,6 @@ button:focus {
 .incorrect-letter {
   color: #f25042;
   text-decoration: black line-through;
-  text-decoration-thickness: 3px;
+  text-decoration-thickness: 2px;
   font-weight: bold;
 }

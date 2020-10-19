@@ -58,7 +58,7 @@ function Mark(props) {
         {props.director && <P movie>{props.director}</P>}
       </Speech>
 
-      <ol style={{ paddingLeft: "inherit" }}>{props.movieList}</ol>
+      <ol style={{ paddingLeft: "2rem" }}>{props.movieList}</ol>
     </Card>
   );
 }

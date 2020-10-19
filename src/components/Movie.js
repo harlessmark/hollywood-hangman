@@ -41,12 +41,14 @@ function Movie() {
 
   const onCorrectLetter = letterLower => {
     const letter = letterLower.toUpperCase();
+
     setCorrectLetters([...correctLetters, letter]);
     setIncorrectLetters([...incorrectLetters.filter(i => i !== letter)]);
   };
 
   const onIncorrectLetter = letterLower => {
     const letter = letterLower.toUpperCase();
+
     setIncorrectLetters([...incorrectLetters, letter]);
     setCorrectLetters([...correctLetters.filter(i => i !== letter)]);
   };
@@ -64,12 +66,12 @@ function Movie() {
       const re = new RegExp(`${letter}`, "gi");
 
       if (re.test(data.title)) {
-        // "tries" remains same if letter is in title
+        // tries remains same if letter is in title
         onCorrectLetter(letter);
         dispatch({ type: "CORRECT_GUESS", letter });
       } else {
-        onIncorrectLetter(letter);
         // tries-- if letter is not in title
+        onIncorrectLetter(letter);
         dispatch({ type: "DECREMENT_TRIES" });
       }
     }
