@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import "./App.css";
-import logo from "./assets/logo.png";
 import Instructions from "./components/Instructions";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
+import Img from "./styled/Img";
+
+import "./App.css";
+import logo from "./assets/logo.png";
 
 import { useDispatch, useSelector } from "react-redux";
 import ReactGa from "react-ga";
@@ -36,13 +38,7 @@ function App() {
 
   return (
     <div>
-      {score === null && (
-        <img
-          src={logo}
-          alt='hollywood hangman'
-          style={{ maxWidth: "100%", height: "auto", marginBottom: "1rem" }}
-        />
-      )}
+      {score === null && <Img src={logo} alt='hollywood hangman' />}
 
       {gotCorrect === true && "Correct!"}
       {score === null && <Instructions startGame={startGame} />}

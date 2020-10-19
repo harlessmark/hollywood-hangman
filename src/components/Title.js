@@ -1,5 +1,13 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
+
+const H2 = styled.h2`
+  color: #020826;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: "Roboto Mono", monospace;
+`;
 
 function Title() {
   const movie = useSelector(state => state.movie);
@@ -14,9 +22,9 @@ function Title() {
   }
 
   return (
-    <h2 className='blank-title'>
+    <H2>
       {movie?.displayTitle} {movie?.data?.year}
-    </h2>
+    </H2>
   );
 }
 

@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Card from "../styled/Card";
 import GuessedLetters from "./GuessedLetters";
 import { ReactComponent as MarkSVG } from "../assets/mark.svg";
+import P from "../styled/P";
 
 import { useSelector } from "react-redux";
 
@@ -19,13 +20,9 @@ const H4 = styled.h4`
 const Speech = styled.div`
   border: 2px solid #020826;
   padding: 1rem;
-  margin-bottom: 0;
+  margin: 1rem 0;
   background-color: #fffffe;
   border-radius: 10px;
-`;
-
-const P = styled.p`
-  margin: ${props => (props.movie ? ".5rem 0" : "0")};
 `;
 
 function Mark(props) {
@@ -37,9 +34,9 @@ function Mark(props) {
 
         <div>
           <H3>Mark, The Movie Buff</H3>
-          <p style={{ margin: "2px 0 0 1rem" }}>
+          <P style={{ margin: "2px 0 0 1rem" }}>
             {props.status || (tries !== 0 && <GuessedLetters />)}
-          </p>
+          </P>
         </div>
       </div>
 

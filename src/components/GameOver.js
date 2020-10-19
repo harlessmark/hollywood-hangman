@@ -5,6 +5,7 @@ import { interjection, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../styled/Button";
+import Img from "../styled/Img";
 
 const TotallyRandom = require("totally-random");
 const random = new TotallyRandom();
@@ -97,11 +98,7 @@ function GameOver() {
 
   return (
     <div>
-      <img
-        src={gameOver}
-        alt='game over'
-        style={{ maxWidth: "100%", height: "auto", marginBottom: "1rem" }}
-      />
+      <Img src={gameOver} alt='game over' />
 
       <Mark dialogue={splitDialogue()} movieList={movieList} />
 

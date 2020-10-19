@@ -12,9 +12,8 @@ function Game() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const random = new TotallyRandom();
-
     // gets random movie
+    const random = new TotallyRandom();
     const randomMovie = random.array(movie_data);
 
     // wraps year in () for smoother rendering
@@ -39,8 +38,7 @@ function Game() {
         <Score />
         <TriesLeft />
       </Card>
-
-      <Movie style={{ paddingBottom: "380px" }} />
+      <Movie />
     </div>
   );
 }

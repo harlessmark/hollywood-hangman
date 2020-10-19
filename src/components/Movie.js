@@ -85,7 +85,9 @@ function Movie() {
         {data?.title}{" "}
         <span style={{ color: "rgba(0,0,0,.3)" }}>{data?.imdbID}</span>
       </p>
-      {isMobile && <div style={{ marginTop: "100px" }}>.</div>}
+
+      {/* // margin for keyboard */}
+      {isMobile && <div style={{ marginTop: "132px" }}>.</div>}
 
       {isMobile && (
         <Keyboard

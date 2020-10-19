@@ -4,15 +4,6 @@ html {
   margin: 1rem;
 }
 
-h1 {
-  font-family: "Roboto Mono", monospace;
-  color: #020826;
-}
-
-p {
-  font-family: "Montserrat", sans-serif;
-}
-
 sub {
   font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
@@ -36,11 +27,6 @@ a {
 .guessed-letters {
   font-weight: bold;
   letter-spacing: 3px;
-}
-
-.blank-title {
-  letter-spacing: 2px;
-  text-align: center;
 }
 
 .simple-keyboard.hg-theme-default.myTheme {
