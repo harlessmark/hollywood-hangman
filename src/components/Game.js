@@ -31,10 +31,16 @@ function Game() {
 
   return (
     <div>
-      <Card style={{ display: "flex", justifyContent: "space-between" }}>
+      <Card
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          paddingBottom: "380px",
+        }}>
         <Score />
         <TriesLeft />
       </Card>
+      // TODO delete this
       <Movie />
     </div>
   );
