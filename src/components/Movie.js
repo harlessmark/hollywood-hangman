@@ -85,7 +85,7 @@ function Movie() {
         director={data?.director}
         style={{ paddingBottom: "380px" }}
       />
-      // TODO delete this p
+      {/* // TODO delete this p */}
       <p>
         {data?.title}{" "}
         <span style={{ color: "rgba(0,0,0,.3)" }}>{data?.imdbID}</span>
