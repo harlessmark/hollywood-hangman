@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
 import TriesLeft from "./TriesLeft";
-import GuessedLetters from "./GuessedLetters";
 import Score from "./Score";
 import Movie from "./Movie";
+import Card from "../styled/Card";
 
 import movie_data from "../data/movie_data.json";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 const TotallyRandom = require("totally-random");
 
 function Game() {
-  const isMobile = useSelector(state => state.isMobile);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -32,9 +31,10 @@ function Game() {
 
   return (
     <div>
-      <Score />
-      <TriesLeft />
-      {!isMobile && <GuessedLetters />}
+      <Card style={{ display: "flex", justifyContent: "space-between" }}>
+        <Score />
+        <TriesLeft />
+      </Card>
       <Movie />
     </div>
   );

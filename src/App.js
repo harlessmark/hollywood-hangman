@@ -7,6 +7,8 @@ import GameOver from "./components/GameOver";
 import { useDispatch, useSelector } from "react-redux";
 import ReactGa from "react-ga";
 
+// TODO shrink size of H3 "Mark, the Movie Buff"
+
 function App() {
   const { score } = useSelector(state => state.game);
   const { tries, gotCorrect } = useSelector(state => state.movie);

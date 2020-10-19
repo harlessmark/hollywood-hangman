@@ -16,11 +16,7 @@ function GuessedLetters() {
       );
   });
 
-  return (
-    <p>
-      guessed letters: <span className='guessed-letters'>{mappedLetters}</span>
-    </p>
-  );
+  return <span className='guessed-letters'>{mappedLetters}</span>;
 }
 
 export default GuessedLetters;

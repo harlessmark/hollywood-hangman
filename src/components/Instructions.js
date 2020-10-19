@@ -77,10 +77,12 @@ function Instructions(props) {
     <div>
       <Mark status={dialogue[num].status} dialogue={splitDialogue()} />
 
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
         {/* hides when final dialogue is shown */}
         {dialogue[num].player !== "I'm ready" && (
-          <Button onClick={props.startGame} style={{ marginTop: "1.5rem" }}>
+          <Button
+            onClick={props.startGame}
+            style={{ margin: "1.5rem 1rem 0 0" }}>
             Skip All
           </Button>
         )}
@@ -96,9 +98,7 @@ function Instructions(props) {
 
         {/* shows when final dialogue is shown */}
         {dialogue[num].player === "I'm ready" && (
-          <Button
-            onClick={props.startGame}
-            style={{ marginTop: "1.5rem", flexGrow: "1" }}>
+          <Button onClick={props.startGame} style={{ marginTop: "1.5rem" }}>
             {dialogue[num].player}
           </Button>
         )}

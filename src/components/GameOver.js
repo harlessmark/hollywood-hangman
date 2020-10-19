@@ -10,7 +10,6 @@ const random = new TotallyRandom();
 function GameOver() {
   const dispatch = useDispatch();
   const { moviesPlayed } = useSelector(state => state.game);
-  const isMobile = useSelector(state => state.isMobile);
 
   const scoreSentence = () => {
     if (moviesPlayed.length - 1 === 0) {
@@ -102,14 +101,13 @@ function GameOver() {
 
       <ol>{movieList}</ol>
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        {isMobile && (
-          <a
-            href='https://buymeacoffee.com/2spacemilk'
-            target='_blank'
-            rel='noopener noreferrer'>
-            <Button>Buy Coffee</Button>
-          </a>
-        )}
+        <a
+          href='https://buymeacoffee.com/2spacemilk'
+          target='_blank'
+          rel='noopener noreferrer'>
+          <Button>Buy Coffee</Button>
+        </a>
+
         <Button onClick={playAgain}>Play Again?</Button>
       </div>
     </div>

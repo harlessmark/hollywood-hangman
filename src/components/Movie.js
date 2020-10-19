@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
-import Title from "./Title";
+
+import Mark from "./Mark";
 import KeyboardEventHandler from "react-keyboard-event-handler";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -76,15 +77,12 @@ function Movie() {
 
   return (
     <div>
-      <Title />
+      <Mark plot={data?.plot} actors={data?.actors} director={data?.director} />
 
       <p>
         {data?.title}{" "}
         <span style={{ color: "rgba(0,0,0,.3)" }}>{data?.imdbID}</span>
       </p>
-      <p>{data?.plot}</p>
-      <p>Actors: {data?.actors}</p>
-      <p>Director: {data?.director}</p>
 
       {isMobile && (
         <Keyboard

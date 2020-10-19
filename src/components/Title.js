@@ -14,11 +14,9 @@ function Title() {
   }
 
   return (
-    <h1 className='blank-movie'>
-      <b>
-        {movie?.displayTitle} {movie?.data?.year}
-      </b>
-    </h1>
+    <h2 className='blank-title'>
+      {movie?.displayTitle} {movie?.data?.year}
+    </h2>
   );
 }
 
