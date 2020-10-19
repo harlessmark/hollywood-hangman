@@ -46,7 +46,9 @@ function App() {
 
       {gotCorrect === true && "Correct!"}
       {score === null && <Instructions startGame={startGame} />}
-      {score !== null && tries !== 0 && gotCorrect === false && <Game />}
+      {score !== null && tries !== 0 && gotCorrect === false && (
+        <Game style={{ paddingBottom: "200px" }} />
+      )}
       {tries === 0 && <GameOver />}
     </div>
   );
