@@ -35,13 +35,12 @@ function Game() {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          paddingBottom: "380px",
         }}>
         <Score />
         <TriesLeft />
       </Card>
-      // TODO delete this
-      <Movie />
+
+      <Movie style={{ paddingBottom: "380px" }} />
     </div>
   );
 }

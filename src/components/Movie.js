@@ -79,13 +79,17 @@ function Movie() {
 
   return (
     <div>
-      <Mark plot={data?.plot} actors={data?.actors} director={data?.director} />
-
+      <Mark
+        plot={data?.plot}
+        actors={data?.actors}
+        director={data?.director}
+        style={{ paddingBottom: "380px" }}
+      />
+      // TODO delete this p
       <p>
         {data?.title}{" "}
         <span style={{ color: "rgba(0,0,0,.3)" }}>{data?.imdbID}</span>
       </p>
-
       {isMobile && (
         <Keyboard
           keyboardRef={r => (keyboard.current = r)}
@@ -103,7 +107,6 @@ function Movie() {
           className='pin-bottom'
         />
       )}
-
       <KeyboardEventHandler
         handleKeys={[..."qwertyuiopasdfghjklzxcvbnm"]}
         onKeyEvent={letter => letterCheck(letter)}
