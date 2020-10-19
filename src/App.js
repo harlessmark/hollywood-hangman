@@ -1,13 +1,12 @@
 import React, { useEffect } from "react";
 import "./App.css";
+import logo from "./assets/logo.png";
 import Instructions from "./components/Instructions";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
 
 import { useDispatch, useSelector } from "react-redux";
 import ReactGa from "react-ga";
-
-// TODO shrink size of H3 "Mark, the Movie Buff"
 
 function App() {
   const { score } = useSelector(state => state.game);
@@ -37,6 +36,14 @@ function App() {
 
   return (
     <div>
+      {score === null && (
+        <img
+          src={logo}
+          alt='hollywood hangman'
+          style={{ maxWidth: "100%", height: "auto", marginBottom: "1rem" }}
+        />
+      )}
+
       {gotCorrect === true && "Correct!"}
       {score === null && <Instructions startGame={startGame} />}
       {score !== null && tries !== 0 && gotCorrect === false && <Game />}

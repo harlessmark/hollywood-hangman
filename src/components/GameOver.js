@@ -1,4 +1,6 @@
 import React from "react";
+import Mark from "./Mark";
+import gameOver from "../assets/gameover.png";
 import { interjection, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -95,18 +97,24 @@ function GameOver() {
 
   return (
     <div>
-      <h1>Game Over</h1>
+      <img
+        src={gameOver}
+        alt='game over'
+        style={{ maxWidth: "100%", height: "auto", marginBottom: "1rem" }}
+      />
 
-      <p>{splitDialogue()}</p>
+      <Mark dialogue={splitDialogue()} movieList={movieList} />
 
-      <ol>{movieList}</ol>
-      <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <a
-          href='https://buymeacoffee.com/2spacemilk'
-          target='_blank'
-          rel='noopener noreferrer'>
-          <Button>Buy Coffee</Button>
-        </a>
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <Button style={{ marginRight: "1rem" }}>
+          <a
+            href='https://buymeacoffee.com/2spacemilk'
+            target='_blank'
+            rel='noopener noreferrer'
+            style={{ margin: "1.5rem 1rem" }}>
+            Buy Coffee
+          </a>
+        </Button>
 
         <Button onClick={playAgain}>Play Again?</Button>
       </div>

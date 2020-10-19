@@ -18,6 +18,11 @@ sub {
   font-size: 1.2rem;
 }
 
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
 .wrong-letter,
 .final-score {
   color: #f25042;

@@ -80,9 +80,7 @@ function Instructions(props) {
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
         {/* hides when final dialogue is shown */}
         {dialogue[num].player !== "I'm ready" && (
-          <Button
-            onClick={props.startGame}
-            style={{ margin: "1.5rem 1rem 0 0" }}>
+          <Button onClick={props.startGame} style={{ margin: "1.5rem 1rem" }}>
             Skip All
           </Button>
         )}
