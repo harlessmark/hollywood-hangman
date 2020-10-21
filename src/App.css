@@ -4,16 +4,6 @@ html {
   margin: 1rem;
 }
 
-.wrong-letter {
-  color: #f25042;
-  font-weight: bold;
-}
-
-.guessed-letters {
-  font-weight: bold;
-  letter-spacing: 3px;
-}
-
 .simple-keyboard.hg-theme-default.myTheme {
   background-color: #eaddcf;
   color: #020826;

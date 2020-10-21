@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 
 function GuessedLetters() {
   const movie = useSelector(state => state.movie);
@@ -10,13 +11,17 @@ function GuessedLetters() {
       return <span key={++id}>{letter}</span>;
     } else
       return (
-        <span className='wrong-letter' key={++id}>
+        <span key={++id} style={{ color: "#f25042", fontWeight: "bold" }}>
           {letter}
         </span>
       );
   });
 
-  return <span className='guessed-letters'>{mappedLetters}</span>;
+  return (
+    <span style={{ fontWeight: "bold", letterSpacing: "3px" }}>
+      {mappedLetters}
+    </span>
+  );
 }
 
 export default GuessedLetters;
