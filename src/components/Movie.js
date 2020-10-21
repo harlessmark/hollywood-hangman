@@ -104,7 +104,6 @@ function Movie() {
             ],
           }}
           buttonTheme={getButtonTheme()}
-          className='pin-bottom'
         />
       )}
       <KeyboardEventHandler

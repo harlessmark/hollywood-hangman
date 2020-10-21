@@ -113,11 +113,11 @@ function GameOver() {
             target='_blank'
             rel='noopener noreferrer'
             style={{ margin: "1.5rem 1rem" }}>
-            Buy Coffee
+            Coffee
           </a>
         </Button>
 
-        <Button onClick={playAgain}>Play Again?</Button>
+        <Button onClick={playAgain}>Again?</Button>
       </Div>
     </div>
   );

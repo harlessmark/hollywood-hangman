@@ -12,7 +12,7 @@ import { useSelector } from "react-redux";
 const H3 = styled.h3`
   color: #716040;
   margin: 0 0 0 1rem;
-  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-width: 0.3px;
 `;
 
 const H4 = styled.h4`
