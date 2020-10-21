@@ -19,6 +19,10 @@ function Title() {
   ) {
     dispatch({ type: "INCREMENT_SCORE" });
     dispatch({ type: "GOT_CORRECT" });
+
+    setTimeout(() => {
+      dispatch({ type: "INITIAL_STATE_MOVIE" });
+    }, 3500);
   }
 
   return (

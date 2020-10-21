@@ -28,13 +28,6 @@ function App() {
     ReactGa.pageview(window.location.pathname + window.location.search);
   }, [dispatch]);
 
-  if (gotCorrect) {
-    // displays "correct" screen
-    setTimeout(() => {
-      dispatch({ type: "INITIAL_STATE_MOVIE" });
-    }, 3500);
-  }
-
   const startGame = () => dispatch({ type: "START_GAME" });
 
   return (
