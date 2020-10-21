@@ -37,7 +37,7 @@ function ScoreBoard() {
 
   return (
     <Card>
-      <Div>
+      <Div spaceBetween>
         <Ul>{toPopcorn}</Ul>
         <Ul>{toHearts}</Ul>
       </Div>

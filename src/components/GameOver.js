@@ -4,7 +4,7 @@ import gameOver from "../assets/gameover.png";
 import { interjection, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
 import Span from "../styled/Span";
-import styled from "styled-components";
+import Div from "../styled/Div";
 
 import Button from "../styled/Button";
 import Img from "../styled/Img";
@@ -21,9 +21,7 @@ function GameOver() {
       return "you didn't get _any_ correct";
     } else if (moviesPlayed.length - 1 === 1) {
       return "you only got _one_ movie correct";
-    } else {
-      return `you only got _num_ correct`;
-    }
+    } else return `you only got _num_ correct`;
   };
 
   const dialogue = `${interjection()}, ${scoreSentence()}! ${insultingSentence()}, you _slur_! Even
@@ -108,7 +106,7 @@ function GameOver() {
         movieList={movieList}
       />
 
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <Div flexEnd>
         <Button style={{ marginRight: "1rem" }}>
           <a
             href='https://buymeacoffee.com/2spacemilk'
@@ -120,7 +118,7 @@ function GameOver() {
         </Button>
 
         <Button onClick={playAgain}>Play Again?</Button>
-      </div>
+      </Div>
     </div>
   );
 }
