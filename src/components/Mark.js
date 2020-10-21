@@ -16,7 +16,7 @@ const H3 = styled.h3`
 
 const H4 = styled.h4`
   margin: 0;
-  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-width: 0.5px;
 `;
 
 const Speech = styled.div`
