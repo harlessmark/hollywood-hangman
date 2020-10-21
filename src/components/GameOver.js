@@ -107,17 +107,14 @@ function GameOver() {
       />
 
       <Div flexEnd>
-        <Button style={{ marginRight: "1rem" }}>
-          <a
-            href='https://buymeacoffee.com/2spacemilk'
-            target='_blank'
-            rel='noopener noreferrer'
-            style={{ margin: "1.5rem 1rem" }}>
-            Coffee
-          </a>
-        </Button>
+        <a
+          href='https://buymeacoffee.com/2spacemilk'
+          target='_blank'
+          rel='noopener noreferrer'>
+          <Button leftButton>Buy Me a Coffee</Button>
+        </a>
 
-        <Button onClick={playAgain}>Again?</Button>
+        <Button onClick={playAgain}>Try Again?</Button>
       </Div>
     </div>
   );

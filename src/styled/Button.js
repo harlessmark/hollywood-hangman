@@ -7,7 +7,7 @@ export default styled.button`
   border: 2px solid #020826;
   font-weight: bold;
   border-radius: 10px;
-  padding: 1rem 1.5rem;
+  padding: 1rem;
   font-size: 1rem;
   color: #fffffe;
   margin-right: ${props => (props.leftButton ? "1rem" : 0)};

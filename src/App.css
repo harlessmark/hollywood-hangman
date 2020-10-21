@@ -4,11 +4,6 @@ html {
   margin: 1rem;
 }
 
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-
 .wrong-letter {
   color: #f25042;
   font-weight: bold;
