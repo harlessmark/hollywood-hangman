@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
 
 function GuessedLetters() {
   const movie = useSelector(state => state.movie);
