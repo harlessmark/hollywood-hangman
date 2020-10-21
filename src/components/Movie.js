@@ -80,6 +80,7 @@ function Movie() {
   return (
     <div>
       <Mark plot={data?.plot} actors={data?.actors} director={data?.director} />
+
       {/* // TODO delete this p */}
       <p>
         {data?.title}{" "}

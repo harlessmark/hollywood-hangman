@@ -16,6 +16,7 @@ const H3 = styled.h3`
 
 const H4 = styled.h4`
   margin: 0;
+  font-weight: bolder;
 `;
 
 const Speech = styled.div`
