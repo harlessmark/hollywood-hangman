@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Button from "../styled/Button";
 import { slur } from "../insults";
 import Mark from "./Mark";
+import Span from "../styled/Span";
+import Div from "../styled/Div";
 
 function Instructions(props) {
   let [num, setNum] = useState(0);
@@ -53,7 +55,7 @@ function Instructions(props) {
       return (
         <>
           {firstText}
-          <span className='slur'>{slur()}</span>
+          <Span>{slur()}</Span>
           {secondText}
         </>
       );
@@ -66,7 +68,7 @@ function Instructions(props) {
       return (
         <>
           {firstText}
-          <span className='final-score'>6</span>
+          <Span score>6</Span>
           {secondText}
         </>
       );
@@ -77,7 +79,7 @@ function Instructions(props) {
     <div>
       <Mark status={dialogue[num].status} dialogue={splitDialogue()} />
 
-      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+      <Div flexEnd>
         {/* hides when final dialogue is shown */}
         {dialogue[num].player !== "I'm ready" && (
           <Button onClick={props.startGame} leftButton>
@@ -96,7 +98,7 @@ function Instructions(props) {
         {dialogue[num].player === "I'm ready" && (
           <Button onClick={props.startGame}>{dialogue[num].player}</Button>
         )}
-      </div>
+      </Div>
     </div>
   );
 }

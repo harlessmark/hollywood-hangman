@@ -4,23 +4,13 @@ html {
   margin: 1rem;
 }
 
-/* sub {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.2rem;
-} */
-
 a {
   color: inherit;
   text-decoration: inherit;
 }
 
-.wrong-letter,
-.final-score {
+.wrong-letter {
   color: #f25042;
-  font-weight: bold;
-}
-
-.slur {
   font-weight: bold;
 }
 

@@ -3,9 +3,10 @@ import Title from "./Title";
 import styled from "styled-components";
 import Card from "../styled/Card";
 import GuessedLetters from "./GuessedLetters";
-import { ReactComponent as MarkSVG } from "../assets/mark.svg";
 import P from "../styled/P";
+import Div from "../styled/Div";
 
+import { ReactComponent as MarkSVG } from "../assets/mark.svg";
 import { useSelector } from "react-redux";
 
 const H3 = styled.h3`
@@ -29,7 +30,7 @@ function Mark(props) {
   const { tries } = useSelector(state => state.movie);
   return (
     <Card>
-      <div style={{ display: "flex", justifyContent: "flex-start" }}>
+      <Div flexStart>
         <MarkSVG style={{ height: "100px", margin: "-10px" }} />
 
         <div>
@@ -38,7 +39,7 @@ function Mark(props) {
             {props.status || (tries !== 0 && <GuessedLetters />)}
           </P>
         </div>
-      </div>
+      </Div>
 
       {tries !== 0 && <Title />}
 

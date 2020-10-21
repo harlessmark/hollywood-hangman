@@ -3,6 +3,8 @@ import Mark from "./Mark";
 import gameOver from "../assets/gameover.png";
 import { interjection, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
+import Span from "../styled/Span";
+import styled from "styled-components";
 
 import Button from "../styled/Button";
 import Img from "../styled/Img";
@@ -40,9 +42,9 @@ function GameOver() {
       return (
         <>
           {beforeSplit}
-          <span className='final-score'>any</span>
+          <Span score>any</Span>
           {afterSplit}
-          <span className='slur'>{slur()}</span>
+          <Span>{slur()}</Span>
           {afterSlur}
         </>
       );
@@ -53,9 +55,9 @@ function GameOver() {
       return (
         <>
           {beforeSplit}
-          <span className='final-score'>one</span>
+          <Span score>one</Span>
           {afterSplit}
-          <span className='slur'>{slur()}</span>
+          <Span>{slur()}</Span>
           {afterSlur}
         </>
       );
@@ -66,9 +68,9 @@ function GameOver() {
       return (
         <div>
           {beforeSplit}
-          <span className='final-score'>{moviesPlayed.length - 1}</span>
+          <Span score>{moviesPlayed.length - 1}</Span>
           {afterSplit}
-          <span className='slur'>{slur()}</span>
+          <Span>{slur()}</Span>
           {afterSlur}
         </div>
       );
@@ -100,7 +102,11 @@ function GameOver() {
     <div>
       <Img src={gameOver} alt='game over' />
 
-      <Mark dialogue={splitDialogue()} movieList={movieList} />
+      <Mark
+        status={"Remains uncontested"}
+        dialogue={splitDialogue()}
+        movieList={movieList}
+      />
 
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
         <Button style={{ marginRight: "1rem" }}>

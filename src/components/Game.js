@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
-import TriesLeft from "./TriesLeft";
-import Score from "./Score";
 import Movie from "./Movie";
-import Card from "../styled/Card";
 
 import movie_data from "../data/movie_data.json";
 import { useDispatch } from "react-redux";
@@ -28,19 +25,7 @@ function Game() {
     dispatch({ type: "ADD_TO_MOVIES_PLAYED", randomMovie });
   }, [dispatch]);
 
-  return (
-    <div>
-      <Card
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}>
-        <Score />
-        <TriesLeft />
-      </Card>
-      <Movie />
-    </div>
-  );
+  return <Movie />;
 }
 
 export default Game;
