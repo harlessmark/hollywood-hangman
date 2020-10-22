@@ -15,14 +15,15 @@ import ScoreBoard from "./components/ScoreBoard";
 // TODO coffee button doesn't work on Safari mobile
 // find virtual keyboard onClick function
 
-// confetti
-
+// change png face based on dialogue
+// social media image in index.html
 // favicon
 
 const Wrapper = styled.div`
   background-color: #fffffe;
   color: #716040;
   margin: 1rem;
+  touch-action: manipulation;
 
   @media (min-width: 460px) {
     font-size: 1.2rem;
