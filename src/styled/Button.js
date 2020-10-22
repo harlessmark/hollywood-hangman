@@ -23,6 +23,10 @@ export default styled.button`
     outline: none;
   }
 
+  @media (max-width: 376px) {
+    padding: 1rem;
+  }
+
   @media (min-width: 460px) {
     padding: 1rem 2rem;
     border: 3px solid #020826;

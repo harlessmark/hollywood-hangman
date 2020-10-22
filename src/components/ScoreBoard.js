@@ -10,29 +10,53 @@ const Ul = styled.ul`
   padding: 0;
 `;
 
+const Li = styled.li`
+  display: inline;
+`;
+
 function ScoreBoard() {
   const { score } = useSelector(state => state.game);
   const { tries } = useSelector(state => state.movie);
 
+  const popcornStyle = {
+    margin: "5px 1px",
+  };
+
+  const heartsStyle = {
+    margin: "5px 2px",
+    color: "#f25042",
+  };
+
   let scoreID = 0;
   const toPopcorn = [...Array(score)].map(() => {
-    return (
-      <li style={{ display: "inline" }} key={++scoreID}>
-        <i className='far fa-popcorn' />
-      </li>
-    );
+    if (window.innerWidth >= 460)
+      return (
+        <Li key={++scoreID}>
+          <i className='far fa-popcorn fa-lg' style={popcornStyle} />
+        </Li>
+      );
+    else
+      return (
+        <Li key={++scoreID}>
+          <i className='far fa-popcorn' style={popcornStyle} />
+        </Li>
+      );
   });
 
   let triesID = 0;
   const toHearts = [...Array(tries)].map(() => {
-    return (
-      <li style={{ display: "inline" }} key={++triesID}>
-        <i
-          className='far fa-heart'
-          style={{ color: "#f25042", marginLeft: "2px" }}
-        />
-      </li>
-    );
+    if (window.innerWidth >= 460)
+      return (
+        <Li key={++triesID}>
+          <i className='far fa-heart fa-lg' style={heartsStyle} />
+        </Li>
+      );
+    else
+      return (
+        <Li key={++triesID}>
+          <i className='far fa-heart' style={heartsStyle} />
+        </Li>
+      );
   });
 
   return (

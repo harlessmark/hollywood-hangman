@@ -1,4 +1,10 @@
 import React, { useEffect } from "react";
+import ReactGa from "react-ga";
+import { useDispatch, useSelector } from "react-redux";
+import "./App.css";
+import logo from "./assets/logo.png";
+import styled from "styled-components";
+
 import Instructions from "./components/Instructions";
 import Game from "./components/Game";
 import GameOver from "./components/GameOver";
@@ -6,19 +12,34 @@ import Correct from "./components/Correct";
 import Img from "./styled/Img";
 import ScoreBoard from "./components/ScoreBoard";
 
-import "./App.css";
-import logo from "./assets/logo.png";
-import { useDispatch, useSelector } from "react-redux";
-import ReactGa from "react-ga";
-
 // TODO coffee button doesn't work on Safari mobile
 // find virtual keyboard onClick function
 
 // TODO Open Peeps avatar
+// media query gets larger icon
+
 // TODO refactor
 // confetti
 
-function App() {
+// favicon
+
+const Wrapper = styled.div`
+  background-color: #fffffe;
+  color: #716040;
+  margin: 1rem;
+
+  @media (min-width: 460px) {
+    font-size: 1.2rem;
+  }
+
+  @media (min-width: 600px) {
+    width: 600px;
+    font-size: 1.5rem;
+    margin: 4rem auto;
+  }
+`;
+
+export default function App() {
   const { score } = useSelector(state => state.game);
   const { tries, gotCorrect } = useSelector(state => state.movie);
   const dispatch = useDispatch();
@@ -38,7 +59,7 @@ function App() {
   const startGame = () => dispatch({ type: "START_GAME" });
 
   return (
-    <div className='app'>
+    <Wrapper>
       {/* header */}
       {score === null && <Img src={logo} alt='hollywood hangman' />}
       {score !== null && tries !== 0 && <ScoreBoard />}
@@ -49,8 +70,6 @@ function App() {
       {score !== null && tries !== 0 && gotCorrect === false && <Game />}
 
       {tries === 0 && <GameOver />}
-    </div>
+    </Wrapper>
   );
 }
-
-export default App;

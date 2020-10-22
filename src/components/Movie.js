@@ -53,12 +53,6 @@ function Movie() {
     setCorrectLetters([...correctLetters.filter(i => i !== letter)]);
   };
 
-  const onKeyPress = letter => {
-    if (letter === "☕️") {
-      window.open("http://2spacemilk.com", "_blank");
-    } else letterCheck(letter.toLowerCase());
-  };
-
   const letterCheck = letter => {
     // checks if letter has already been entered
     if (!letters.includes(letter)) {
@@ -75,6 +69,15 @@ function Movie() {
         dispatch({ type: "DECREMENT_TRIES" });
       }
     }
+  };
+
+  const onKeyPress = letter => {
+    if (letter === "☕️") {
+      let safariWindow = window.open();
+      safariWindow.location.href = "http://2spacemilk.com";
+
+      return safariWindow;
+    } else letterCheck(letter.toLowerCase());
   };
 
   return (
