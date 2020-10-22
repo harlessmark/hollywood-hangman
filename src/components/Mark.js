@@ -14,10 +14,10 @@ const svgStyle = () => {
   const windowWidth = window.innerWidth;
 
   if (windowWidth >= 600) {
-    return { width: "140px" };
+    return { width: "140px", height: "140px" };
   } else if (windowWidth >= 460) {
-    return { width: "120px" };
-  } else return { width: "100px" };
+    return { width: "120px", height: "120px" };
+  } else return { width: "100px", height: "100px" };
 };
 
 const H3 = styled.h3`
