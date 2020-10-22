@@ -17,7 +17,7 @@ import ScoreBoard from "./components/ScoreBoard";
 
 // change png face based on dialogue
 // social media image in index.html
-// favicon
+// update README.md
 
 const Wrapper = styled.div`
   background-color: #fffffe;
