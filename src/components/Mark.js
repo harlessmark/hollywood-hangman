@@ -57,7 +57,7 @@ function Mark(props) {
         <img src={smile} style={svgStyle()} alt='avatar' />
 
         <div>
-          <H3>Mark, The Movie Buff</H3>
+          <H3>Mark, Movie Snob</H3>
           <P style={{ margin: "2px 0 0 1rem" }}>
             {props.status || (tries !== 0 && <GuessedLetters />)}
           </P>
