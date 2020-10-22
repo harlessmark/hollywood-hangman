@@ -3,16 +3,16 @@ import Mark from "./Mark";
 import gameOver from "../assets/gameover.png";
 import { interjection, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
+
 import Span from "../styled/Span";
 import Div from "../styled/Div";
-
 import Button from "../styled/Button";
 import Img from "../styled/Img";
 
 const TotallyRandom = require("totally-random");
 const random = new TotallyRandom();
 
-function GameOver() {
+export default function GameOver() {
   const dispatch = useDispatch();
   const { moviesPlayed } = useSelector(state => state.game);
 
@@ -119,5 +119,3 @@ function GameOver() {
     </div>
   );
 }
-
-export default GameOver;

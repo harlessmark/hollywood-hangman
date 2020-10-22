@@ -9,7 +9,7 @@ const H2 = styled.h2`
   font-family: "Roboto Mono", monospace;
 `;
 
-function Title() {
+export default function Title() {
   const movie = useSelector(state => state.movie);
   const dispatch = useDispatch();
 
@@ -31,5 +31,3 @@ function Title() {
     </H2>
   );
 }
-
-export default Title;

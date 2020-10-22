@@ -19,6 +19,7 @@ import ScoreBoard from "./components/ScoreBoard";
 // media query gets larger icon
 
 // TODO refactor
+
 // confetti
 
 // favicon

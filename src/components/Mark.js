@@ -1,13 +1,24 @@
 import React from "react";
-import Title from "./Title";
+import { ReactComponent as MarkSVG } from "../assets/mark.svg";
+import { useSelector } from "react-redux";
 import styled from "styled-components";
-import Card from "../styled/Card";
+
+import Title from "./Title";
 import GuessedLetters from "./GuessedLetters";
+
+import Card from "../styled/Card";
 import P from "../styled/P";
 import Div from "../styled/Div";
 
-import { ReactComponent as MarkSVG } from "../assets/mark.svg";
-import { useSelector } from "react-redux";
+const svgStyle = () => {
+  const windowWidth = window.innerWidth;
+
+  if (windowWidth >= 600) {
+    return { height: "180", margin: "-10px" };
+  } else if (windowWidth >= 460) {
+    return { height: "140", margin: "-10px" };
+  } else return { height: "100px", margin: "-10px" };
+};
 
 const H3 = styled.h3`
   color: #716040;
@@ -43,7 +54,7 @@ function Mark(props) {
   return (
     <Card>
       <Div flexStart style={{ marginBottom: "1rem" }}>
-        <MarkSVG style={{ height: "100px", margin: "-10px" }} />
+        <MarkSVG style={svgStyle()} />
 
         <div>
           <H3>Mark, The Movie Buff</H3>

@@ -1,9 +1,10 @@
 import React from "react";
 import Mark from "./Mark";
-import { slur } from "../insults";
 import Span from "../styled/Span";
 
-function Correct() {
+import { slur } from "../insults";
+
+export default function Correct() {
   const dialogue = `Congrats! You got it correct, you _slur_! I bet you can't keep this going.`;
 
   const splitDialogue = () => {
@@ -22,5 +23,3 @@ function Correct() {
 
   return <Mark status={"Is visibly upset"} dialogue={splitDialogue()} />;
 }
-
-export default Correct;

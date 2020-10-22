@@ -1,13 +1,12 @@
 import React, { useState, useRef } from "react";
-
-import Mark from "./Mark";
-import KeyboardEventHandler from "react-keyboard-event-handler";
 import { useDispatch, useSelector } from "react-redux";
-
 import Keyboard from "react-simple-keyboard";
 import "react-simple-keyboard/build/css/index.css";
+import KeyboardEventHandler from "react-keyboard-event-handler";
 
-function Movie() {
+import Mark from "./Mark";
+
+export default function Movie() {
   const { letters } = useSelector(state => state.movie);
   const { data } = useSelector(state => state.movie);
   const isMobile = useSelector(state => state.isMobile);
@@ -73,10 +72,7 @@ function Movie() {
 
   const onKeyPress = letter => {
     if (letter === "☕️") {
-      let safariWindow = window.open();
-      safariWindow.location.href = "http://2spacemilk.com";
-
-      return safariWindow;
+      window.open("http://2spacemilk.com", "_blank");
     } else letterCheck(letter.toLowerCase());
   };
 
@@ -118,5 +114,3 @@ function Movie() {
     </div>
   );
 }
-
-export default Movie;

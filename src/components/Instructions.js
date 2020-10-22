@@ -5,7 +5,7 @@ import Mark from "./Mark";
 import Span from "../styled/Span";
 import Div from "../styled/Div";
 
-function Instructions(props) {
+export default function Instructions(props) {
   let [num, setNum] = useState(0);
 
   const dialogue = [
@@ -102,5 +102,3 @@ function Instructions(props) {
     </div>
   );
 }
-
-export default Instructions;

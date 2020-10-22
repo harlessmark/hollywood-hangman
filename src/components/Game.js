@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import Movie from "./Movie";
-
 import movie_data from "../data/movie_data.json";
 import { useDispatch } from "react-redux";
+import Movie from "./Movie";
+
 const TotallyRandom = require("totally-random");
 
-function Game() {
+export default function Game() {
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -27,5 +27,3 @@ function Game() {
 
   return <Movie />;
 }
-
-export default Game;

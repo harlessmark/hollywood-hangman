@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+
 import Card from "../styled/Card";
 import Div from "../styled/Div";
 
@@ -14,7 +15,7 @@ const Li = styled.li`
   display: inline;
 `;
 
-function ScoreBoard() {
+export default function ScoreBoard() {
   const { score } = useSelector(state => state.game);
   const { tries } = useSelector(state => state.movie);
 
@@ -68,5 +69,3 @@ function ScoreBoard() {
     </Card>
   );
 }
-
-export default ScoreBoard;
