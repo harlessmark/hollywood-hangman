@@ -11,6 +11,13 @@ import logo from "./assets/logo.png";
 import { useDispatch, useSelector } from "react-redux";
 import ReactGa from "react-ga";
 
+// TODO coffee button doesn't work on Safari mobile
+// find virtual keyboard onClick function
+
+// TODO Open Peeps avatar
+// TODO refactor
+// confetti
+
 function App() {
   const { score } = useSelector(state => state.game);
   const { tries, gotCorrect } = useSelector(state => state.movie);
@@ -31,7 +38,7 @@ function App() {
   const startGame = () => dispatch({ type: "START_GAME" });
 
   return (
-    <div>
+    <div className='app'>
       {/* header */}
       {score === null && <Img src={logo} alt='hollywood hangman' />}
       {score !== null && tries !== 0 && <ScoreBoard />}

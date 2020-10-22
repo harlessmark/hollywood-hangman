@@ -4,7 +4,7 @@ import { slur } from "../insults";
 import Span from "../styled/Span";
 
 function Correct() {
-  const dialogue = `Congrats! You got it correct, you _slur_!`;
+  const dialogue = `Congrats! You got it correct, you _slur_! I bet you can't keep this going.`;
 
   const splitDialogue = () => {
     // splits dialogue to add css styling to slur

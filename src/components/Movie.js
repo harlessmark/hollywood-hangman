@@ -88,7 +88,9 @@ function Movie() {
       </p>
 
       {/* // margin for keyboard */}
-      {isMobile && <div style={{ marginTop: "132px" }}>.</div>}
+      {isMobile && (
+        <div style={{ marginTop: "132px", color: "#fffffe" }}>.</div>
+      )}
 
       {isMobile && (
         <Keyboard

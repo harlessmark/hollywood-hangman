@@ -83,7 +83,7 @@ function Instructions(props) {
         {/* hides when final dialogue is shown */}
         {dialogue[num].player !== "I'm ready" && (
           <Button onClick={props.startGame} leftButton>
-            Skip All
+            Skip all
           </Button>
         )}
 

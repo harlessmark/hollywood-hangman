@@ -7,7 +7,7 @@ export default styled.button`
   border: 2px solid #020826;
   font-weight: bold;
   border-radius: 10px;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   font-size: 1rem;
   color: #fffffe;
   margin-right: ${props => (props.leftButton ? "1rem" : 0)};
@@ -21,5 +21,17 @@ export default styled.button`
 
   :focus {
     outline: none;
+  }
+
+  @media (min-width: 460px) {
+    padding: 1rem 2rem;
+    border: 3px solid #020826;
+    font-size: 1.1rem;
+  }
+
+  @media (min-width: 600px) {
+    padding: 1rem 2rem;
+    border: 3px solid #020826;
+    font-size: 1.5rem;
   }
 `;

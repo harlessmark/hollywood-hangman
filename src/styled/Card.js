@@ -8,4 +8,16 @@ export default styled.div`
   background-color: #f9f4ef;
   padding: 0.8rem;
   margin-bottom: 1.5rem;
+
+  @media (min-width: 460px) {
+    border: 3px solid #020826;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+
+  @media (min-width: 600px) {
+    border: 4px solid #020826;
+    margin-bottom: 2rem;
+    padding: 2rem;
+  }
 `;

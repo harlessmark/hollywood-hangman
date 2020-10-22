@@ -23,16 +23,26 @@ const H4 = styled.h4`
 const Speech = styled.div`
   border: 2px solid #020826;
   padding: 1rem;
-  margin: 1rem 0;
   background-color: #fffffe;
   border-radius: 10px;
+
+  @media (min-width: 460px) {
+    border: 3px solid #020826;
+  }
+`;
+
+const Ol = styled.ol`
+  padding-left: 2rem;
+  margin-bottom: 0;
 `;
 
 function Mark(props) {
+  const { score } = useSelector(state => state.game);
   const { tries } = useSelector(state => state.movie);
+
   return (
     <Card>
-      <Div flexStart>
+      <Div flexStart style={{ marginBottom: "1rem" }}>
         <MarkSVG style={{ height: "100px", margin: "-10px" }} />
 
         <div>
@@ -43,7 +53,7 @@ function Mark(props) {
         </div>
       </Div>
 
-      {tries !== 0 && <Title />}
+      {score !== null && tries !== 0 && <Title />}
 
       <Speech>
         {props.dialogue && <P>{props.dialogue}</P>}
@@ -58,7 +68,7 @@ function Mark(props) {
         {props.director && <P movie>{props.director}</P>}
       </Speech>
 
-      <ol style={{ paddingLeft: "2rem" }}>{props.movieList}</ol>
+      {tries === 0 && <Ol>{props.movieList}</Ol>}
     </Card>
   );
 }

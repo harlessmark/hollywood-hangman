@@ -24,3 +24,17 @@ html {
   text-decoration-thickness: 2px;
   font-weight: bold;
 }
+
+@media only screen and (min-width: 460px) {
+  .app {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .app {
+    width: 600px;
+    font-size: 1.5rem;
+    margin: 4rem auto;
+  }
+}
