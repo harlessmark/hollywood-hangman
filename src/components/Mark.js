@@ -54,7 +54,7 @@ function Mark(props) {
   return (
     <Card>
       <Div flexStart style={{ marginBottom: "1rem" }}>
-        <img src={smile} style={svgStyle()} />
+        <img src={smile} style={svgStyle()} alt='avatar' />
 
         <div>
           <H3>Mark, The Movie Buff</H3>
