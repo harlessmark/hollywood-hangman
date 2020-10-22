@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as MarkSVG } from "../assets/mark.svg";
+import smile from "../assets/smile.png";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
@@ -14,10 +14,10 @@ const svgStyle = () => {
   const windowWidth = window.innerWidth;
 
   if (windowWidth >= 600) {
-    return { height: "180", margin: "-10px" };
+    return { width: "140px" };
   } else if (windowWidth >= 460) {
-    return { height: "140", margin: "-10px" };
-  } else return { height: "100px", margin: "-10px" };
+    return { width: "120px" };
+  } else return { width: "100px" };
 };
 
 const H3 = styled.h3`
@@ -54,7 +54,7 @@ function Mark(props) {
   return (
     <Card>
       <Div flexStart style={{ marginBottom: "1rem" }}>
-        <MarkSVG style={svgStyle()} />
+        <img src={smile} style={svgStyle()} />
 
         <div>
           <H3>Mark, The Movie Buff</H3>

@@ -41,7 +41,7 @@ export default function GameOver() {
 
     for (let i = 0; i < moviesPlayed.length - 1; i++) {
       // adds more confetti, starts at 0
-      defaultConfig.elementCount += 15;
+      defaultConfig.elementCount += 20;
     }
 
     if (isMobile) defaultConfig.startVelocity = 30;
