@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Mark from "./Mark";
 import gameOver from "../assets/gameover.png";
 import { interjection, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
+import Confetti from "react-dom-confetti";
 
 import Span from "../styled/Span";
 import Div from "../styled/Div";
@@ -13,8 +14,40 @@ const TotallyRandom = require("totally-random");
 const random = new TotallyRandom();
 
 export default function GameOver() {
-  const dispatch = useDispatch();
+  const [partyTime, setPartyTime] = useState(false);
   const { moviesPlayed } = useSelector(state => state.game);
+  const isMobile = useSelector(state => state.isMobile);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // for confetti
+    setPartyTime(true);
+  }, []);
+
+  const confettiConfig = () => {
+    const defaultConfig = {
+      angle: 90,
+      spread: 360,
+      startVelocity: 50,
+      elementCount: 0,
+      dragFriction: 0.12,
+      duration: 3000,
+      stagger: 3,
+      width: "10px",
+      height: "10px",
+      perspective: "500px",
+      colors: ["#e53e3e", "#dd6b20", "#38a169", "#3182ce", "#d53f8c"],
+    };
+
+    for (let i = 0; i < moviesPlayed.length - 1; i++) {
+      // adds more confetti, starts at 0
+      defaultConfig.elementCount += 15;
+    }
+
+    if (isMobile) defaultConfig.startVelocity = 30;
+
+    return defaultConfig;
+  };
 
   const scoreSentence = () => {
     if (moviesPlayed.length - 1 === 0) {
@@ -99,7 +132,9 @@ export default function GameOver() {
   return (
     <div>
       <Img src={gameOver} alt='game over' />
-
+      <Div>
+        <Confetti active={partyTime} config={confettiConfig()} />
+      </Div>
       <Mark
         status={"Remains uncontested"}
         dialogue={splitDialogue()}

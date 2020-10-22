@@ -21,6 +21,7 @@ export default function Title() {
     dispatch({ type: "GOT_CORRECT" });
 
     setTimeout(() => {
+      // shows then hides Correct screen
       dispatch({ type: "INITIAL_STATE_MOVIE" });
     }, 3500);
   }

@@ -15,11 +15,6 @@ import ScoreBoard from "./components/ScoreBoard";
 // TODO coffee button doesn't work on Safari mobile
 // find virtual keyboard onClick function
 
-// TODO Open Peeps avatar
-// media query gets larger icon
-
-// TODO refactor
-
 // confetti
 
 // favicon

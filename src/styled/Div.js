@@ -6,5 +6,7 @@ export default styled.div`
     if (props.flexStart) return "flex-start";
     if (props.flexEnd) return "flex-end";
     if (props.spaceBetween) return "space-between";
+
+    return "center";
   }};
 `;
