@@ -58,6 +58,7 @@ const svgStyle = () => {
 function Mark(props) {
   const { score } = useSelector(state => state.game);
   const { tries, gotCorrect } = useSelector(state => state.movie);
+  const isMobile = useSelector(state => state.isMobile);
 
   const showEmotion = () => {
     // decides which face to show
@@ -131,14 +132,16 @@ function Mark(props) {
         {tries === 0 && <Ol>{props.movieList}</Ol>}
       </Card>
       <Div flexEnd>
-        {gotCorrect === true && random.between(1, 20) === 1 && (
-          <a
-            href='https://buymeacoffee.com/2spacemilk'
-            target='_blank'
-            rel='noopener noreferrer'>
-            <Button>Buy Me a Coffee</Button>
-          </a>
-        )}
+        {gotCorrect === true &&
+          isMobile === false &&
+          random.between(1, 10) === 1 && (
+            <a
+              href='https://buymeacoffee.com/2spacemilk'
+              target='_blank'
+              rel='noopener noreferrer'>
+              <Button>Buy Me a Coffee</Button>
+            </a>
+          )}
       </Div>
     </div>
   );
