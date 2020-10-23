@@ -16,7 +16,6 @@ import ScoreBoard from "./components/ScoreBoard";
 // find virtual keyboard onClick function
 
 // change png face based on dialogue
-// social media image in index.html
 // update README.md
 
 const Wrapper = styled.div`

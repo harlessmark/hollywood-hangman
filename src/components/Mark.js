@@ -1,7 +1,11 @@
 import React from "react";
-import smile from "../assets/smile.png";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
+
+import smile from "../assets/smile.png";
+import grin from "../assets/grin.png";
+import laugh from "../assets/laugh.png";
+import mad from "../assets/mad.png";
 
 import Title from "./Title";
 import GuessedLetters from "./GuessedLetters";
@@ -9,16 +13,6 @@ import GuessedLetters from "./GuessedLetters";
 import Card from "../styled/Card";
 import P from "../styled/P";
 import Div from "../styled/Div";
-
-const svgStyle = () => {
-  const windowWidth = window.innerWidth;
-
-  if (windowWidth >= 600) {
-    return { width: "140px", height: "140px" };
-  } else if (windowWidth >= 460) {
-    return { width: "120px", height: "120px" };
-  } else return { width: "100px", height: "100px" };
-};
 
 const H3 = styled.h3`
   color: #716040;
@@ -47,14 +41,33 @@ const Ol = styled.ol`
   margin-bottom: 0;
 `;
 
+const svgStyle = () => {
+  const windowWidth = window.innerWidth;
+
+  if (windowWidth >= 600) {
+    return { width: "140px", height: "140px" };
+  } else if (windowWidth >= 460) {
+    return { width: "120px", height: "120px" };
+  } else return { width: "100px", height: "100px" };
+};
+
 function Mark(props) {
   const { score } = useSelector(state => state.game);
-  const { tries } = useSelector(state => state.movie);
+  const { tries, gotCorrect } = useSelector(state => state.movie);
+
+  const showEmotion = () => {
+    if (tries <= 1) return <img src={laugh} style={svgStyle()} alt='avatar' />;
+    if (gotCorrect) return <img src={mad} style={svgStyle()} alt='avatar' />;
+    if (score !== null)
+      return <img src={grin} style={svgStyle()} alt='avatar' />;
+
+    return <img src={smile} style={svgStyle()} alt='avatar' />;
+  };
 
   return (
     <Card>
       <Div flexStart style={{ marginBottom: "1rem" }}>
-        <img src={smile} style={svgStyle()} alt='avatar' />
+        {showEmotion()}
 
         <div>
           <H3>Mark, Movie Snob</H3>
