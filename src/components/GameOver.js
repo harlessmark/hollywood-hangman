@@ -3,6 +3,7 @@ import Mark from "./Mark";
 import gameOver from "../assets/gameover.png";
 import { interjection, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
+import { TwitterShareButton } from "react-share";
 import Confetti from "react-dom-confetti";
 
 import Span from "../styled/Span";
@@ -129,6 +130,29 @@ export default function GameOver() {
     dispatch({ type: "START_GAME" });
   };
 
+  const twitterSlur = () => {
+    // correct grammar for Twitter share
+    const badWord = slur();
+    const vowels = [..."aeiou"];
+
+    if (vowels.includes(badWord.charAt(0))) {
+      return `an ${badWord}`;
+    } else return `a ${badWord}`;
+  };
+
+  const twitterTitle = () => {
+    let theTitle = `I'm ${twitterSlur()} and `;
+
+    if (moviesPlayed.length - 1 === 0) {
+      theTitle += "couldn't guess any movie right";
+    } else if (moviesPlayed.length - 1 === 1) {
+      theTitle += `only guessed ${moviesPlayed.length - 1} movie correctly`;
+    } else
+      theTitle += `only guessed ${moviesPlayed.length - 1} movies correctly`;
+
+    return theTitle;
+  };
+
   return (
     <div>
       <Img src={gameOver} alt='game over' />
@@ -142,12 +166,20 @@ export default function GameOver() {
       />
 
       <Div flexEnd>
-        <a
-          href='https://buymeacoffee.com/2spacemilk'
-          target='_blank'
-          rel='noopener noreferrer'>
-          <Button leftButton>Buy a Coffee</Button>
-        </a>
+        <Button leftButton>
+          <TwitterShareButton
+            children={"Share Score"}
+            url={"https://hollywoodhangman.com"}
+            title={twitterTitle()}
+            related={["2spacemilk"]}
+            hashtags={["hollywoodhangman"]}
+            style={{
+              fontWeight: "bold",
+              paddingBottom: "0",
+              marginBottom: "0",
+            }}
+          />
+        </Button>
 
         <Button onClick={playAgain}>Try Again?</Button>
       </Div>

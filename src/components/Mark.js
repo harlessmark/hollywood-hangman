@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
+import { slur } from "../insults";
+
 import smile from "../assets/smile.png";
 import grin from "../assets/grin.png";
 import laugh from "../assets/laugh.png";
@@ -52,10 +54,11 @@ const svgStyle = () => {
 };
 
 function Mark(props) {
-  const { score } = useSelector(state => state.game);
+  const { score, moviesPlayed } = useSelector(state => state.game);
   const { tries, gotCorrect } = useSelector(state => state.movie);
 
   const showEmotion = () => {
+    // decides which face to show
     if (tries <= 1) return <img src={laugh} style={svgStyle()} alt='avatar' />;
     if (gotCorrect) return <img src={mad} style={svgStyle()} alt='avatar' />;
     if (score !== null)
