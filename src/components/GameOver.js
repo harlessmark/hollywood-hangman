@@ -154,7 +154,7 @@ export default function GameOver() {
   };
 
   return (
-    <div>
+    <>
       <Img src={gameOver} alt='game over' />
       <Div>
         <Confetti active={partyTime} config={confettiConfig()} />
@@ -183,6 +183,6 @@ export default function GameOver() {
 
         <Button onClick={playAgain}>Try Again?</Button>
       </Div>
-    </div>
+    </>
   );
 }
