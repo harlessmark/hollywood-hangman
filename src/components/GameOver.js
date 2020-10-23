@@ -166,22 +166,15 @@ export default function GameOver() {
       />
 
       <Div flexEnd>
-        <Button leftButton>
-          <TwitterShareButton
-            children={"Share Score"}
-            url={"https://hollywoodhangman.com"}
-            title={twitterTitle()}
-            related={["2spacemilk"]}
-            hashtags={["hollywoodhangman"]}
-            style={{
-              fontWeight: "bold",
-              paddingBottom: "0",
-              marginBottom: "0",
-            }}
-          />
-        </Button>
+        <TwitterShareButton
+          children={<Button leftButton>Share Score</Button>}
+          url={"https://hollywoodhangman.com"}
+          title={twitterTitle()}
+          related={["2spacemilk"]}
+          hashtags={["hollywoodhangman"]}
+        />
 
-        <Button onClick={playAgain}>Try Again?</Button>
+        <Button onClick={playAgain}>Try Again</Button>
       </Div>
     </>
   );
