@@ -57,12 +57,42 @@ function Mark(props) {
 
   const showEmotion = () => {
     // decides which face to show
-    if (tries <= 1) return <img src={laugh} style={svgStyle()} alt='avatar' />;
-    if (gotCorrect) return <img src={mad} style={svgStyle()} alt='avatar' />;
+    if (tries <= 1)
+      return (
+        <a
+          href='https://buymeacoffee.com/2spacemilk'
+          target='_blank'
+          rel='noopener noreferrer'>
+          <img src={laugh} style={svgStyle()} alt='avatar' />
+        </a>
+      );
+    if (gotCorrect)
+      return (
+        <a
+          href='https://buymeacoffee.com/2spacemilk'
+          target='_blank'
+          rel='noopener noreferrer'>
+          <img src={mad} style={svgStyle()} alt='avatar' />
+        </a>
+      );
     if (score !== null)
-      return <img src={grin} style={svgStyle()} alt='avatar' />;
+      return (
+        <a
+          href='https://buymeacoffee.com/2spacemilk'
+          target='_blank'
+          rel='noopener noreferrer'>
+          <img src={grin} style={svgStyle()} alt='avatar' />
+        </a>
+      );
 
-    return <img src={smile} style={svgStyle()} alt='avatar' />;
+    return (
+      <a
+        href='https://buymeacoffee.com/2spacemilk'
+        target='_blank'
+        rel='noopener noreferrer'>
+        <img src={smile} style={svgStyle()} alt='avatar' />
+      </a>
+    );
   };
 
   return (
