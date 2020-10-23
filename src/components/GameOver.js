@@ -168,7 +168,7 @@ export default function GameOver() {
       <Div flexEnd>
         <TwitterShareButton
           children={<Button leftButton>Share Score</Button>}
-          url={"hollywoodhangman.com"}
+          url={"https://www.hollywoodhangman.com"}
           title={twitterTitle()}
           related={["2spacemilk"]}
           hashtags={["hollywoodhangman"]}
