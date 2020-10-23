@@ -80,12 +80,6 @@ export default function Movie() {
     <div>
       <Mark plot={data?.plot} actors={data?.actors} director={data?.director} />
 
-      {/* // TODO delete this p */}
-      <p>
-        {data?.title}{" "}
-        <span style={{ color: "rgba(0,0,0,.3)" }}>{data?.imdbID}</span>
-      </p>
-
       {/* // margin for keyboard */}
       {isMobile && (
         <div style={{ marginTop: "132px", color: "#fffffe" }}>.</div>

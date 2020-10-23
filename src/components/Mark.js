@@ -13,6 +13,10 @@ import GuessedLetters from "./GuessedLetters";
 import Card from "../styled/Card";
 import P from "../styled/P";
 import Div from "../styled/Div";
+import Button from "../styled/Button";
+
+const TotallyRandom = require("totally-random");
+const random = new TotallyRandom();
 
 const H3 = styled.h3`
   color: #716040;
@@ -96,35 +100,47 @@ function Mark(props) {
   };
 
   return (
-    <Card>
-      <Div flexStart style={{ marginBottom: "1rem" }}>
-        {showEmotion()}
+    <div>
+      <Card>
+        <Div flexStart style={{ marginBottom: "1rem" }}>
+          {showEmotion()}
 
-        <div>
-          <H3>Mark, Movie Snob</H3>
-          <P style={{ margin: "2px 0 0 1rem" }}>
-            {props.status || (tries !== 0 && <GuessedLetters />)}
-          </P>
-        </div>
+          <div>
+            <H3>Mark, Movie Snob</H3>
+            <P style={{ margin: "2px 0 0 1rem" }}>
+              {props.status || (tries !== 0 && <GuessedLetters />)}
+            </P>
+          </div>
+        </Div>
+
+        {score !== null && tries !== 0 && <Title />}
+
+        <Speech>
+          {props.dialogue && <P>{props.dialogue}</P>}
+
+          {props.plot && <H4>Plot</H4>}
+          {props.plot && <P movie>{props.plot}</P>}
+
+          {props.actors && <H4>Featuring</H4>}
+          {props.actors && <P movie>{props.actors}</P>}
+
+          {props.director && <H4>Directed By</H4>}
+          {props.director && <P movie>{props.director}</P>}
+        </Speech>
+
+        {tries === 0 && <Ol>{props.movieList}</Ol>}
+      </Card>
+      <Div flexEnd>
+        {gotCorrect === true && random.between(1, 20) === 1 && (
+          <a
+            href='https://buymeacoffee.com/2spacemilk'
+            target='_blank'
+            rel='noopener noreferrer'>
+            <Button>Buy Me a Coffee</Button>
+          </a>
+        )}
       </Div>
-
-      {score !== null && tries !== 0 && <Title />}
-
-      <Speech>
-        {props.dialogue && <P>{props.dialogue}</P>}
-
-        {props.plot && <H4>Plot</H4>}
-        {props.plot && <P movie>{props.plot}</P>}
-
-        {props.actors && <H4>Featuring</H4>}
-        {props.actors && <P movie>{props.actors}</P>}
-
-        {props.director && <H4>Directed By</H4>}
-        {props.director && <P movie>{props.director}</P>}
-      </Speech>
-
-      {tries === 0 && <Ol>{props.movieList}</Ol>}
-    </Card>
+    </div>
   );
 }
 

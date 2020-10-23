@@ -1,7 +1,6 @@
 import React from "react";
 import Mark from "./Mark";
 import Span from "../styled/Span";
-
 import { slur } from "../insults";
 
 export default function Correct() {

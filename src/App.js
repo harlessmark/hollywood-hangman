@@ -15,9 +15,6 @@ import ScoreBoard from "./components/ScoreBoard";
 // TODO coffee button doesn't work on Safari mobile
 // find virtual keyboard onClick function
 
-// change png face based on dialogue
-// update README.md
-
 const Wrapper = styled.div`
   background-color: #fffffe;
   color: #716040;
