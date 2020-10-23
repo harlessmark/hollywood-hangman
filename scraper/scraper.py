@@ -5,12 +5,13 @@ from bs4 import BeautifulSoup
 
 # gets the IMDb ids for later api use
 # separates all movies from all english movies
-# * last scraped on October 13, 2020
+# * last scraped on October 14, 2020
 
 
 page_num = 1
-all_movies = []
-english_movies = []
+movie_ids = []
+movie_data = []
+
 
 while page_num <= 951:
     page = requests.get(
@@ -22,28 +23,29 @@ while page_num <= 951:
     for movie in ribbonize:
         # extracts IMDb ID
         regex = re.search("tt\S{7}", str(movie))
-        all_movies.append(regex.group(0))
+        movie_ids.append(regex.group(0))
+
+        print(regex.group(0))
 
     page_num += 50
 
-for movie in all_movies:
-    # only movies with English listed in Language
-    res = requests.get(
-        f'http://www.omdbapi.com/?i={movie}&apikey=80e59555').json()
-
-    if "English" in res['Language']:
-        english_movies.append(movie)
 
 # movies to remove because of too many numbers in title
-movies_to_remove = ['tt1306980', 'tt8579674']
-
+movies_to_remove = ['tt1306980', 'tt8579674', 'tt0056801']
 for movie in movies_to_remove:
-    all_movies.remove(movie)
-    english_movies.remove(movie)
+    movie_ids.remove(movie)
+
+# scrapes for json movie data
+for movie_id in movie_ids:
+    movie_json = requests.get(
+        f"https://www.omdbapi.com/?i={movie_id}&apikey=80e59555").json()
+
+    movie_json['imdbID'] = movie_id
+    movie_data.append(movie_json)
+
+    print(movie_json['Title'])
+
 
 # converts to JSON and writes to file
-with open('all_movies.json', 'w') as f:
-    json.dump(all_movies, f)
-
-with open('english_movies.json', 'w') as f:
-    json.dump(english_movies, f)
+with open('movie_data.json', 'w') as f:
+    json.dump(movie_data, f)

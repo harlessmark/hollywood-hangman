@@ -1,58 +1,20 @@
-h1 {
-  font-family: "Roboto Mono", monospace;
+.simple-keyboard.hg-theme-default.myTheme {
+  background-color: #eaddcf;
   color: #020826;
+  font-family: "Roboto Mono", monospace;
+  position: fixed;
+  bottom: 0;
+  margin: -1rem 0 0 -1rem;
 }
 
-p {
-  font-family: "Montserrat", sans-serif;
-}
-
-.wrong-letter,
-.final-score {
+.correct-letter {
   color: #f25042;
   font-weight: bold;
 }
 
-.slur {
+.incorrect-letter {
+  color: #f25042;
+  text-decoration: black line-through;
+  text-decoration-thickness: 2px;
   font-weight: bold;
-}
-
-.guessed-letters {
-  font-weight: bold;
-  letter-spacing: 3px;
-}
-
-.blank-movie {
-  letter-spacing: 2px;
-}
-
-.App {
-  text-align: center;
-  background-color: #f9f4ef;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: #716040;
-}
-
-button {
-  color: #fffffe;
-  background-color: #8c7851;
-  border-radius: 10px;
-  box-shadow: 8px 8px rgb(27, 27, 27);
-  margin-left: 1rem;
-  padding: 1rem 4rem;
-  border: 2px solid #1b1b1b;
-}
-
-button:hover {
-  position: relative;
-  top: -3px;
-}
-
-button:focus {
-  outline: none;
 }

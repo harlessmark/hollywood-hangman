@@ -1,19 +1,26 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 
-function GuessedLetters() {
+const Letter = styled.span`
+  color: #f25042;
+  font-weight: bold;
+`;
+
+const Letters = styled.span`
+  font-weight: bold;
+  letter-spacing: 3px;
+`;
+
+export default function GuessedLetters() {
   const movie = useSelector(state => state.movie);
+
+  let id = 0;
   const mappedLetters = movie.letters.map(letter => {
     if (movie.data.title.toLowerCase().includes(letter)) {
-      return letter;
-    } else return <span className='wrong-letter'>{letter}</span>;
+      return <span key={++id}>{letter}</span>;
+    } else return <Letter key={++id}>{letter}</Letter>;
   });
 
-  return (
-    <p>
-      guessed letters: <span className='guessed-letters'>{mappedLetters}</span>
-    </p>
-  );
+  return <Letters>{mappedLetters}</Letters>;
 }
-
-export default GuessedLetters;

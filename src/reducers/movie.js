@@ -7,10 +7,20 @@ let initialState = {
 };
 
 export default (state = initialState, action) => {
-  const { type, data, letter } = action;
+  const { type, randomMovie, letter } = action;
 
   if (type === "ADD_MOVIE") {
-    const { imdbID, Actors, Director, Genre, Plot, Poster, Title, Year } = data;
+    const {
+      imdbID,
+      Actors,
+      Director,
+      Genre,
+      Plot,
+      Poster,
+      Title,
+      Year,
+    } = randomMovie;
+
     // censors title
     const displayTitle = Title.replace(/[a-z]/gi, "_");
 

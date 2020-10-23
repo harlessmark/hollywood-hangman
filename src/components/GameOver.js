@@ -1,59 +1,97 @@
-import React from "react";
-// import About from "./About";
+import React, { useEffect, useState } from "react";
+import Mark from "./Mark";
+import gameOver from "../assets/gameover.png";
 import { interjection, slur, insultingSentence } from "../insults";
 import { useDispatch, useSelector } from "react-redux";
+import { TwitterShareButton } from "react-share";
+import Confetti from "react-dom-confetti";
+
+import Span from "../styled/Span";
+import Div from "../styled/Div";
+import Button from "../styled/Button";
+import Img from "../styled/Img";
 
 const TotallyRandom = require("totally-random");
 const random = new TotallyRandom();
 
-function GameOver() {
-  const dispatch = useDispatch();
+export default function GameOver() {
+  const [partyTime, setPartyTime] = useState(false);
   const { moviesPlayed } = useSelector(state => state.game);
+  const isMobile = useSelector(state => state.isMobile);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    // for confetti
+    setPartyTime(true);
+  }, []);
+
+  const confettiConfig = () => {
+    const defaultConfig = {
+      angle: 90,
+      spread: 360,
+      startVelocity: 50,
+      elementCount: 0,
+      dragFriction: 0.12,
+      duration: 3000,
+      stagger: 3,
+      width: "10px",
+      height: "10px",
+      perspective: "500px",
+      colors: ["#e53e3e", "#dd6b20", "#38a169", "#3182ce", "#d53f8c"],
+    };
+
+    for (let i = 0; i < moviesPlayed.length - 1; i++) {
+      // adds more confetti, starts at 0
+      defaultConfig.elementCount += 20;
+    }
+
+    if (isMobile) defaultConfig.startVelocity = 30;
+
+    return defaultConfig;
+  };
 
   const scoreSentence = () => {
     if (moviesPlayed.length - 1 === 0) {
       return "you didn't get _any_ correct";
     } else if (moviesPlayed.length - 1 === 1) {
       return "you only got _one_ movie correct";
-    } else {
-      return `you only got _num_ correct`;
-    }
+    } else return `you only got _num_ correct`;
   };
 
-  const dialogue = `${interjection()}, ${scoreSentence()}! ${insultingSentence()}, you SLUR! Even
+  const dialogue = `${interjection()}, ${scoreSentence()}! ${insultingSentence()}, you _slur_! Even
   your mom managed to get ${random.to(5) + moviesPlayed.length - 1} right
   when we played last night, ha!`;
 
   const splitDialogue = () => {
     // splits dialogue to add css styling to score and slur
-    const beforeSlur = dialogue.split("SLUR")[0];
-    const afterSlur = dialogue.split("SLUR")[1];
+    const beforeSlur = dialogue.split("_slur_")[0];
+    const afterSlur = dialogue.split("_slur_")[1];
 
     if (scoreSentence().includes("_any_")) {
       const beforeSplit = beforeSlur.split("_any_")[0];
       const afterSplit = beforeSlur.split("_any_")[1];
 
       return (
-        <div>
+        <>
           {beforeSplit}
-          <span className='final-score'>any</span>
+          <Span score>any</Span>
           {afterSplit}
-          <span className='slur'>{slur()}</span>
+          <Span>{slur()}</Span>
           {afterSlur}
-        </div>
+        </>
       );
     } else if (scoreSentence().includes("_one_")) {
       const beforeSplit = beforeSlur.split("_one_")[0];
       const afterSplit = beforeSlur.split("_one_")[1];
 
       return (
-        <div>
+        <>
           {beforeSplit}
-          <span className='final-score'>one</span>
+          <Span score>one</Span>
           {afterSplit}
-          <span className='slur'>{slur()}</span>
+          <Span>{slur()}</Span>
           {afterSlur}
-        </div>
+        </>
       );
     } else {
       const beforeSplit = beforeSlur.split("_num_")[0];
@@ -62,9 +100,9 @@ function GameOver() {
       return (
         <div>
           {beforeSplit}
-          <span className='final-score'>{moviesPlayed.length - 1}</span>
+          <Span score>{moviesPlayed.length - 1}</Span>
           {afterSplit}
-          <span className='slur'>{slur()}</span>
+          <Span>{slur()}</Span>
           {afterSlur}
         </div>
       );
@@ -92,35 +130,59 @@ function GameOver() {
     dispatch({ type: "START_GAME" });
   };
 
+  const twitterSlur = () => {
+    // correct grammar for Twitter share
+    const badWord = slur();
+    const vowels = [..."aeiou"];
+
+    if (vowels.includes(badWord.charAt(0))) {
+      return `an ${badWord}`;
+    } else return `a ${badWord}`;
+  };
+
+  const twitterTitle = () => {
+    let theTitle = `I'm ${twitterSlur()} and `;
+
+    if (moviesPlayed.length - 1 === 0) {
+      theTitle += "couldn't guess any movie right";
+    } else if (moviesPlayed.length - 1 === 1) {
+      theTitle += `only guessed ${moviesPlayed.length - 1} movie correctly`;
+    } else
+      theTitle += `only guessed ${moviesPlayed.length - 1} movies correctly`;
+
+    return theTitle;
+  };
+
   return (
-    <div>
-      <h1>Game Over</h1>
+    <>
+      <Img src={gameOver} alt='game over' />
+      <Div>
+        <Confetti active={partyTime} config={confettiConfig()} />
+      </Div>
+      <Mark
+        status={"Remains uncontested"}
+        dialogue={splitDialogue()}
+        movieList={movieList}
+      />
 
-      <p>{splitDialogue()}</p>
+      <Div flexEnd>
+        <Button leftButton>
+          <TwitterShareButton
+            children={"Share Score"}
+            url={"https://hollywoodhangman.com"}
+            title={twitterTitle()}
+            related={["2spacemilk"]}
+            hashtags={["hollywoodhangman"]}
+            style={{
+              fontWeight: "bold",
+              paddingBottom: "0",
+              marginBottom: "0",
+            }}
+          />
+        </Button>
 
-      <ol>{movieList}</ol>
-
-      {/* {random.boolean() && (
-        <p>
-          Consider{" "}
-          <a
-            href='https://buymeacoffee.com/2spacemilk'
-            target='_blank'
-            rel='noopener noreferrer'>
-            buying me a coffee
-          </a>{" "}
-          if you enjoyed playing Hollywood Hangman. Even someone as{" "}
-          {adjective()} as you must have at least one redeeming quality. Or am I
-          wrong, {slur()}?
-        </p>
-      )} */}
-
-      {/* <button>About</button> */}
-      <button onClick={playAgain}>Play Again?</button>
-
-      {/* <About /> */}
-    </div>
+        <Button onClick={playAgain}>Try Again?</Button>
+      </Div>
+    </>
   );
 }
-
-export default GameOver;

@@ -1,7 +1,15 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
 
-function Title() {
+const H2 = styled.h2`
+  color: #020826;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: "Roboto Mono", monospace;
+`;
+
+export default function Title() {
   const movie = useSelector(state => state.movie);
   const dispatch = useDispatch();
 
@@ -11,15 +19,16 @@ function Title() {
   ) {
     dispatch({ type: "INCREMENT_SCORE" });
     dispatch({ type: "GOT_CORRECT" });
+
+    setTimeout(() => {
+      // shows then hides Correct screen
+      dispatch({ type: "INITIAL_STATE_MOVIE" });
+    }, 3500);
   }
 
   return (
-    <h1 className='blank-movie'>
-      <b>
-        {movie?.displayTitle} {movie?.data?.year}
-      </b>
-    </h1>
+    <H2>
+      {movie?.displayTitle} {movie?.data?.year}
+    </H2>
   );
 }
-
-export default Title;
