@@ -13,10 +13,6 @@ import GuessedLetters from "./GuessedLetters";
 import Card from "../styled/Card";
 import P from "../styled/P";
 import Div from "../styled/Div";
-import Button from "../styled/Button";
-
-const TotallyRandom = require("totally-random");
-const random = new TotallyRandom();
 
 const H3 = styled.h3`
   color: #716040;
@@ -61,7 +57,7 @@ function Mark(props) {
 
   const showEmotion = () => {
     // decides which face to show
-    if (tries <= 1)
+    if (tries <= 1 && gotCorrect === false)
       return (
         <a
           href='https://buymeacoffee.com/2spacemilk'
@@ -130,16 +126,6 @@ function Mark(props) {
 
         {tries === 0 && <Ol>{props.movieList}</Ol>}
       </Card>
-      <Div flexEnd>
-        {gotCorrect === true && random.between(1, 10) === 1 && (
-          <a
-            href='https://buymeacoffee.com/2spacemilk'
-            target='_blank'
-            rel='noopener noreferrer'>
-            <Button>Buy Me a Coffee</Button>
-          </a>
-        )}
-      </Div>
     </div>
   );
 }
