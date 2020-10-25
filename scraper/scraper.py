@@ -3,9 +3,7 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-# gets the IMDb ids for later api use
-# separates all movies from all english movies
-# * last scraped on October 14, 2020
+# * last scraped on October 25, 2020
 
 
 page_num = 1
@@ -31,7 +29,7 @@ while page_num <= 951:
 
 
 # movies to remove because of too many numbers in title
-movies_to_remove = ['tt1306980', 'tt8579674', 'tt0056801']
+movies_to_remove = ['tt1306980', 'tt8579674', 'tt0056801', 'tt0416449']
 for movie in movies_to_remove:
     movie_ids.remove(movie)
 

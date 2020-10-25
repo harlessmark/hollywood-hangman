@@ -6,6 +6,8 @@ const initialState = {
 export default (state = initialState, { type, randomMovie }) => {
   if (type === "START_GAME") return { ...state, score: 0 };
 
+  if (type === "DUPLICATE_CHECK") return state;
+
   if (type === "ADD_TO_MOVIES_PLAYED") {
     state.moviesPlayed = [...state.moviesPlayed, randomMovie];
     return { ...state };
