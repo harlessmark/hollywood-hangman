@@ -18,7 +18,7 @@
     "react-simple-keyboard": "^2.4.68",
     "redux": "^4.0.5",
     "styled-components": "^5.2.0",
-    "totally-random": "^1.2.2"
+    "totally-random": "^1.2.3"
   },
   "scripts": {
     "start": "react-scripts start",
