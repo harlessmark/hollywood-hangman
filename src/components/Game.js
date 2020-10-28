@@ -37,7 +37,7 @@ export default function Game() {
 
     dispatch({ type: "ADD_MOVIE", randomMovie });
     dispatch({ type: "ADD_TO_MOVIES_PLAYED", randomMovie });
-  }, [dispatch]);
+  }, [dispatch, moviesPlayed]);
 
   return <Movie />;
 }
