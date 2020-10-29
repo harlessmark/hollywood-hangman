@@ -46,6 +46,7 @@ for movie_id in movie_ids:
     print(movie_json['Title'])
 
 # removes Bollywood movies
+# partly works
 for movie in movie_data:
     if movie['Country'] == 'India':
         movie_data.remove(movie)
