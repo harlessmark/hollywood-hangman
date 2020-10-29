@@ -3,7 +3,8 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-# * last scraped on October 25, 2020
+
+# * last scraped on October 28, 2020
 
 
 page_num = 1
@@ -35,6 +36,7 @@ for movie in movies_to_remove:
 
 # scrapes for json movie data
 for movie_id in movie_ids:
+
     movie_json = requests.get(
         f"https://www.omdbapi.com/?i={movie_id}&apikey=80e59555").json()
 
@@ -43,6 +45,10 @@ for movie_id in movie_ids:
 
     print(movie_json['Title'])
 
+# removes Bollywood movies
+for movie in movie_data:
+    if movie['Country'] == 'India':
+        movie_data.remove(movie)
 
 # converts to JSON and writes to file
 with open('movie_data.json', 'w') as f:
