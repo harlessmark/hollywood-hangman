@@ -29,8 +29,9 @@ while page_num <= 951:
     page_num += 50
 
 
-# movies to remove because of too many numbers in title
-movies_to_remove = ['tt1306980', 'tt8579674', 'tt0056801', 'tt0416449']
+# obscure movies to remove
+movies_to_remove = ['tt1306980', 'tt8579674', 'tt0056801', 'tt0416449', "tt1043150", "tt8239946", "tt0986264", "tt3417422", "tt7838252", "tt4849438",
+                    "tt3322420", "tt1954470", "tt1620933", "tt0375611", "tt2395469", "tt2283748", "tt1562872", "tt3863552", "tt8108198", "tt1639426", "tt2338151", "tt2350496"]
 for movie in movies_to_remove:
     movie_ids.remove(movie)
 
