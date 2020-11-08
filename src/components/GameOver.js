@@ -150,7 +150,7 @@ export default function GameOver() {
         </a> */}
 
         <a
-          href='https://www.linkedin.com/in/superhackerman/'
+          href='https://www.linkedin.com/in/harlessmark/'
           target='_blank'
           rel='noopener noreferrer'>
           <Button leftButton>Hire Me</Button>
