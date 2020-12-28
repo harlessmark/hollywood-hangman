@@ -153,7 +153,7 @@ export default function GameOver() {
           href='https://www.buymeacoffee.com/2spacemilk'
           target='_blank'
           rel='noopener noreferrer'>
-          <Button leftButton>Coffee ☕️</Button>
+          <Button leftButton>Buy Coffee</Button>
         </a>
 
         <Button onClick={playAgain}>Try Again</Button>
