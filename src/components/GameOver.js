@@ -142,19 +142,12 @@ export default function GameOver() {
       />
 
       <Div flexEnd>
-        {/* <a
-          href='https://buymeacoffee.com/2spacemilk'
-          target='_blank'
-          rel='noopener noreferrer'>
-          <Button leftButton>Buy Me a Coffee</Button>
-        </a> */}
-
-        <a
-          href='https://www.buymeacoffee.com/2spacemilk'
-          target='_blank'
-          rel='noopener noreferrer'>
-          <Button leftButton>Buy Coffee</Button>
-        </a>
+//         <a
+//           href='https://www.buymeacoffee.com/2spacemilk'
+//           target='_blank'
+//           rel='noopener noreferrer'>
+//           <Button leftButton>Buy Coffee</Button>
+//         </a>
 
         <Button onClick={playAgain}>Try Again</Button>
       </Div>
