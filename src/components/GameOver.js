@@ -142,6 +142,13 @@ export default function GameOver() {
       />
 
       <Div flexEnd>
+        <a
+           href='https://linkedin.com/in/harlessmark'
+           target='_blank'
+           rel='noopener noreferrer'>
+           <Button leftButton>LinkedIn</Button>
+        </a>
+
         <Button onClick={playAgain}>Try Again</Button>
       </Div>
     </>
