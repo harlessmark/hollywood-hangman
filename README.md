@@ -6,6 +6,7 @@ I scraped IMDb's top rated 1,000 movies for their IMDb IDs. I then used those ID
 
 - [React](https://reactjs.org/) - Front end JavaScript framework
 - [Redux](https://redux.js.org/) - JavaScript state management
+- [Styled Components](https://styled-components.com) - JSX/CSS styling
 - [Beautiful Soup 4](https://www.crummy.com/software/BeautifulSoup/bs4/doc/) - Python web scraper
 
 ## License
